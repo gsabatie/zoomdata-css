@@ -5,6 +5,11 @@
 @import "vars.scss";
 @import "mixins.scss";
 
+
+@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
+@import "../../../node_modules/muicss/lib/sass/mui/variables";
+@import "../../../node_modules/muicss/lib/sass/mui/mixins";
+@import "../../../node_modules/muicss/lib/sass/mui/buttons";
 /*
 Buttons
 
@@ -17,60 +22,20 @@ A majority of buttons in the site are built from the same base class.
 
 */
 
+
 @mixin zdss-button(){
-    font-size: $zdss-fs-normal;
-    font-weight: 700;
-    line-height: $zdss-fs-normal;
+    @extend .mui-btn;
 
-    position: relative;
-
-    display: inline-block;
-
-    height: 32px;
-    margin-bottom: 0;
-    padding: 7px 12px;
-
-    cursor: pointer;
-    user-select: none;
-    text-align: center;
-    vertical-align: middle;
-    vertical-align: middle;
-    white-space: nowrap;
-    white-space: nowrap;
-
-    color: $zdss-color-white;
-    border: 1px solid transparent;
-    border-radius: $border-radius;
-    outline: none;
-    outline-style: none;
-    background-color: $zdss-color-iron;
-
-    -webkit-appearance: none;
-    
-    &:hover {
-        background-color: $zdss-color-charcoal;
-    }
-    &:disabled{
-        pointer-events: none;
-        background-color: $zdss-color-silver !important;
-        color: $zdss-color-white;
-    }
 }
 
 @mixin zdss-button-primary(){
     @include zdss-button();
-    background-color: $zdss-color-blue;
-    &:hover{
-        background-color: $zdss-color-blue-dark;
-    }
+    @extend .mui-btn--primary;
 }
 
 @mixin zdss-button-danger() {
     @include zdss-button();
-    background-color: $zdss-color-red;
-    &:hover{
-        background-color: $zdss-color-red-dark;
-    }
+    @extend .mui-btn--danger;
 }
 
 /*
@@ -126,24 +91,8 @@ Buttons meant to look like a circle.
 */
 
 @mixin zdss-button-circular(){
-    @include zdss-button();
-    font-size: $zdss-fs-large;
-    line-height: $default-button-height - 2px;
-    padding: 0;
-    border-radius: 50%;
-    width: $default-button-height;
-    height: $default-button-height;
-    background-color: $zdss-color-iron;
-    box-shadow: 2px 2px rgba(89,89,89,0.4), -1px -1px rgba(255,255,255,0.5);
-    
-    &:hover{
-        color: $zdss-color-white;
-        background-color: $zdss-color-charcoal;
-    }
-    &.active{
-        color: $zdss-color-gold;
-        background-color: $zdss-color-charcoal;
-    }
+    @include zdss-button-primary();
+    @extend .mui-btn--fab;
 }
 
 /*
@@ -161,13 +110,7 @@ Buttons meant to look rounded.
     width: $default-button-height;
     height: $default-button-height;
     font-size: $zdss-fs-large;
-    line-height: $default-button-height - 2px;
     padding: 0;
-    background-color: $zdss-color-iron;
-    box-shadow: 2px 2px rgba(89,89,89,0.4), -1px -1px rgba(255,255,255,0.5);
-    &:hover{
-        background-color: $zdss-color-charcoal;
-    }
 }
 
 
@@ -181,22 +124,37 @@ Buttons for the axis of visualizations
 </button>
 
 */ 
-
+    // font-size: $zdss-fs-large;
+    // line-height: $default-button-height - 2px;
+    // padding: 0;
+    // border-radius: 50%;
+    // width: $default-button-height;
+    // height: $default-button-height;
+    // background-color: $zdss-color-iron;
+    // box-shadow: 2px 2px rgba(89,89,89,0.4), -1px -1px rgba(255,255,255,0.5);
+    
+    // &:hover{
+    //     color: $zdss-color-white;
+    //     background-color: $zdss-color-charcoal;
+    // }
+    // &.active{
+    //     color: $zdss-color-gold;
+    //     background-color: $zdss-color-charcoal;
+    // }
 @mixin zdss-button-axis(){
-    @include zdss-button();
+    @include zdss-button-primary();
     padding: 0 12px;
-    background-color: $zdss-color-chromium;
-    color: $zdss-color-iron;
+    background-color: $mui-primary-color-dark;
     z-index: 1;
     text-transform: capitalize;
     white-space: nowrap;
     &:hover{
-        color: $zdss-color-white;
+       
         &.metric{
-            background-color: $zdss-color-blue;
+            background-color: $mui-primary-color-light;
         }
         &.attribute{
-            background-color: #FBBC00;
+            background-color: $mui-accent-color-dark;
         }
     }
 }
@@ -217,50 +175,39 @@ A button group is a series of buttons laid out next to each other, all part of o
 */
 
 @mixin zdss-button-group(){
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    white-space: nowrap;
+    overflow-x: auto;
     display: inline-block;
-    vertical-align: middle;
-    &:before {
-        display: table;
-        content: "";
-    }
-    &:after {
-        display: table;
-        clear: both;
-        content: "";
-    }
-    
     .zdss-button{
-        @include zdss-button();
-        position: relative;
-        float: left;
-        border-radius: 0px;
-        margin-right: 1px;
-        &:first-child {
-            @include zdss-rounded-left($border-radius);
-        }
-        &:last-child {
-            @include zdss-rounded-right($border-radius);
-            margin-right: 0px;
-        }
-        &:hover{
-            z-index: 1;
-        }
-        &:focus{
-            z-index: 1;
-        }
-        &:active{
-            z-index: 1;
-            box-shadow: $zdss-btn-pressed-shadow;
-        }
-        &.selected{
-            z-index: 1;
-            background-color: $zdss-color-charcoal;
-            box-shadow: $zdss-btn-pressed-shadow;
+        display: inline-block;
+
+      
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        color: $mui-tab-font-color;
+        cursor: default;
+        height: 48px;
+        line-height: 48px;
+        padding-left: 24px;
+        padding-right: 24px;
+         user-select: none;
+        
+       &.selected{
+            border-bottom: 2px solid $mui-tab-border-color-active;
+            @if $mui-tab-font-color-active == null {
+                color: $mui-tab-font-color;
+              } @else {
+                color: $mui-tab-font-color-active;
+      }
         }
     }
-    &+.zdss-button-group{
-        margin-left: 5px;
-    }
+  
 }
 
 /*
@@ -273,14 +220,9 @@ Another button for vis popup
 
 */
 
-@mixin zdss-button-vis-popup() {
+@mixin zdss-button-vis-popup(){
     @include zdss-button();
-    background-color: #0389a7;
-    color: white;
-    border-radius: $border-radius-small;
-    &:hover {
-        background-color: #0389a7;
-        color: white;
-    }
+    @extend .mui-btn--primary;
+    @extend .mui-btn--flat;
 }
 
