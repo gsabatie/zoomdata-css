@@ -1,25 +1,37 @@
 @import "vars.scss";
+@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
 
-@mixin zdss-range-track($height: 16px){
+@mixin zdss-range-track($height: 3px){
     box-sizing: border-box;
     height: $height;
     border-style: solid;
     border-color: $zdss-color-mercury;
     border-width: $zdss-range-border-width - 1px;
-    background: $zdss-color-iron;
+    //background: $zdss-color-iron;
     cursor: pointer;
-    @include zdss-rounded($height / 2);
+    //@include zdss-rounded($height / 2);
 }
-@mixin zdss-range-thumb($size:28px){
-    &:hover{
-        background-color: $zdss-color-charcoal;
-    }
+@mixin zdss-range-thumb($size:14px){
     -webkit-appearance: none;
     width: $size;
     height: $size;
-    border-radius: 50%;
     margin-top: -($size/4 + $zdss-range-border-width/2);
-    border: $zdss-range-border-width solid $zdss-color-mercury;
-    background: $zdss-color-iron;
+    background: $mui-accent-color;
     cursor: move;
+    border: none;
+
+    &:hover{
+        border-radius: 50%;
+        background-color: transparent;
+        background: $mui-accent-color;
+        width: $size  ;
+        height: $size; 
+        border: $size / 1.5 solid lighten($mui-accent-color, 30%);
+    }
+    
+    &:active {
+        width: $size * 1.5;
+        height: $size * 1.5; 
+        border: none; 
+    }
 }
