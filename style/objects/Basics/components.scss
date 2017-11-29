@@ -1,3 +1,8 @@
+   
+@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
+@import "../../../node_modules/muicss/lib/sass/mui/variables";
+@import "../../../node_modules/muicss/lib/sass/mui/mixins";
+@import "../../../node_modules/muicss/lib/sass/mui/panel";
 /*
 
 Typical block
@@ -6,10 +11,7 @@ Typical block
 
 */
 @mixin zdss-block(){
-    display: block;
-    margin: 0.5em;
-    padding: 0.5em;
-    @include zdss-rounded();
+    @extend .mui-panel;
 }
 /*
 
