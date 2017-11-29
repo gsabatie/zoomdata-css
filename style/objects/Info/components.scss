@@ -2,7 +2,10 @@
 @import "../Basics/mixins.scss";
 @import "vars.scss";
 @import "mixins.scss";
-
+@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
+@import "../../../node_modules/muicss/lib/sass/mui/variables";
+@import "../../../node_modules/muicss/lib/sass/mui/mixins";
+@import "../../../node_modules/muicss/lib/sass/mui/panel";
 /*
 
 Notification Alert (Info, Error, Success, Warning)
@@ -16,28 +19,29 @@ Notification Alert (Info, Error, Success, Warning)
 */
 
 @mixin zdss-notification-alert() {
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	line-height: 26px;
-	padding: 8px 35px 8px 14px;
-	margin-bottom: 5px;
-	border-radius: 0;
-	border: none;
-	z-index: 3000;
-
-	color: 				$zdss-nt-alert-text-color;
-	background-color: 	$zdss-nt-alert-backround;
-	border-color: 		$zdss-nt-alert-border-color;
+	@extend .mui-panel;
+	//	display: block;
+//	position: absolute;
+//	left: 0;
+//	top: 0;
+//	right: 0;
+//	line-height: 26px;
+	height: 20px;
+	padding: 14px 24px 14px 24px;
+//	margin-bottom: 5px;
+//	border-radius: 0;
+//	border: none;
+//	z-index: 3000;
+//
+	color: 				$mui-text-light;
+	background-color: 	$mui-text-dark;
+//	border-color: 		$zdss-nt-alert-border-color;
 
 	.close {
-		cursor: pointer;
-		font-size: $zdss-fs-large;
-		float: right;
-		margin-right: -20px;
-		@include zdss-icon-x-circle-empty();
+		@include zdss-icon-close(8px, $zdss-color-mercury);
+        float: right;
+        margin: 3px;
+        width: 21px;
 	}
 
 }
@@ -45,8 +49,8 @@ Notification Alert (Info, Error, Success, Warning)
 @mixin zdss-notification-alert-error(){
 	@include zdss-notification-alert();
 	color: 				$zdss-nt-alert-error-text-color;
-	background-color: 	$zdss-nt-alert-error-backround;
-	border-color: 		$zdss-nt-alert-error-border-color;	
+	background-color: 	$mui-danger-color;
+//	border-color: 		$zdss-nt-alert-error-border-color;	
 }
 
 @mixin zdss-notification-alert-success(){
@@ -60,7 +64,7 @@ Notification Alert (Info, Error, Success, Warning)
 @mixin zdss-notification-alert-warning(){
 	@include zdss-notification-alert();
 	color: 				$zdss-nt-alert-warning-text-color;
-	background-color: 	$zdss-nt-alert-warning-backround;
+	background-color: 	$mui-text-accent-hint;
 	border-color: 		$zdss-nt-alert-warning-border-color;
 }
 
@@ -96,23 +100,11 @@ Nofitications Popup
 */
 
 @mixin zdss-notification-popup(){
-    position: absolute;
-	top: 46px;
-	right: 10px;
-	z-index: 1050;
-	width: 276px;
-	background: white;
-	margin: 4px;
-	border: solid;
-	border-width: 1px;
-	border-color: $zdss-nt-popup-border-color;
-	border-radius: 12px;
-	font-size: $zdss-fs-normal;
-	color: #000000;
-	overflow: hidden;
-	@include zdss-shadow();
-
+	@extend .mui-panel;
+    
+	padding: 0;
 	.notification-head {
+		margin: 0;
 		padding: 8px;
 		line-height: 20px;
 		font-size: $zdss-fs-large;
@@ -176,33 +168,8 @@ Notification Error Message
 
 
 @mixin zdss-notification-msg() {
-	position: absolute;
-	right: 5px;
-	top: 38px;
-	width: 300px;
-	font-size: $zdss-fs-normal;
-	max-width: calc(100% - 60px);
-	margin-bottom: 0px;
-	border-radius: 4px;
-	padding: 8px 35px 8px 14px;
-	color: $zdss-nt-error-msg-text-color;
-	background: $zdss-nt-error-msg-backround;
-	border-color: $zdss-nt-error-msg-border-color;
+	@include zdss-notification-alert-error();
 
-	.close {
-		position: relative;
-		top: -2px;
-		cursor: pointer;
-		font-size: $zdss-fs-normal;
-		float: right;
-		margin-right: -20px;
-		line-height: 24px;
-		@include zdss-icon-x-circle-empty();
-	}
-
-	.text {
-		line-height: 24px;
-	}
 
 }
 
@@ -273,20 +240,11 @@ Modal popup light
 
 
 @mixin zdss-popup(){
-    @include zdss-block-dark;
+	  @include zdss-block-dark;
     @include zdss-shadow();
     position: relative;
     padding: 10px 15px;
-    &:after {
-        @include zdss-block-dark();
-        border-radius: 0;
-        transform: rotate(45deg);
-        content: '';
-        position: absolute;
-        top: 6px;
-        width: 10px;
-        height: 10px;
-    }
+   
     .zdss-close {
         @include zdss-icon-close(8px, $zdss-color-mercury);
         float: right;
@@ -308,10 +266,6 @@ Popup (left)
 
 @mixin zdss-popup-left(){
     @include zdss-popup();
-    &:after {
-        left: -15px;
-        z-index: -1;
-    }
 }
 
 
@@ -328,32 +282,12 @@ Popup (right)
 
 @mixin zdss-popup-right(){
     @include zdss-popup();
-    &:after {
-        z-index: -1;
-        right: -15px;
-    }
 }
 
 
 @mixin zdss-tooltip(){
-    @include zdss-block();
-    position: relative;
-    background-color: white;
-    border: 1px solid $zdss-color-iron;
-    border-radius: $border-radius-small;
-    font-size: $zdss-fs-small;
-    &:after {
-        @include zdss-block-dark();
-        border-radius: 0;
-        background-color: $zdss-color-iron;
-        transform: rotate(45deg);
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        opacity: 0.99;
-        z-index: -2;
-    }
+    @include zdss-notification-alert-warning();
+    
 }
 
 /*
@@ -368,10 +302,7 @@ Tooltip(left)
 
 @mixin zdss-tooltip-left(){
     @include zdss-tooltip();
-    &:after {
-        top: 3px;
-        left: -12px;
-    }
+  
 }
 
 /*
@@ -386,10 +317,7 @@ Tooltip(right)
 
 @mixin zdss-tooltip-right(){
     @include zdss-tooltip();
-    &:after {
-        top: 3px;
-        right: -12px;
-    }
+
 }
 
 /*
@@ -404,10 +332,7 @@ Tooltip(top)
 
 @mixin zdss-tooltip-top(){
     @include zdss-tooltip();
-    &:after {
-        bottom: -12px;
-        left: 12px;
-    }
+
 }
 
 /*
@@ -422,10 +347,7 @@ Tooltip(bottom)
 
 @mixin zdss-tooltip-bottom(){
     @include zdss-tooltip();
-    &:after {
-        top: -12px;
-        left: 12px;
-    }
+
 }
 
 /*
@@ -469,8 +391,8 @@ Pop-up Dialog
 */
 
 @mixin zdss-popup-dialog() {
-	@include zdss-popup-modal();
-	background-color: $zdss-color-obsidian;
+	@include zdss-block();
+	color: $mui-text-dark-secondary;
 	margin: 10px;
 	opacity: 0.9;
 	max-width: 280px;
@@ -485,9 +407,9 @@ Pop-up Dialog
 	}
 
 	.dialog-header {
-        @include zdss-overflow-with-dots;
-		color: $zdss-popup-header;
-		text-align: center;
+		@include zdss-overflow-with-dots;
+		font-weight: bold;
+		color: $mui-text-dark;
 		margin: 0 0 10px 0;
 		font-weight: normal;
 		overflow: hidden;
@@ -503,7 +425,7 @@ Pop-up Dialog
 		border-radius: 12px;
 
 		.subhead {
-			color: $zdss-color-silver;
+			color: $mui-text-dark;
 			font-weight: bold;
 			font-size: $zdss-fs-normal;
 			letter-spacing: 0.2em;
@@ -519,7 +441,7 @@ Pop-up Dialog
 	.dialog-actions {
 		padding-top: 8px;
 		button {
-			@include zdss-button-primary();
+			@include zdss-button-vis-popup();
 		}
 	}
 
