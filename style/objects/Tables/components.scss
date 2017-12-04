@@ -1,3 +1,9 @@
+@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
+@import "../../../node_modules/muicss/lib/sass/mui/variables";
+@import "../../../node_modules/muicss/lib/sass/mui/mixins";
+@import "../../../node_modules/muicss/lib/sass/mui/panel";
+@import "../../../node_modules/muicss/lib/sass/mui/table";
+
 /*
 Basic table
 
@@ -29,34 +35,7 @@ Basic table
 */
 
 @mixin zdss-table() {
-    $border-color: $zdss-color-silver;
-	width: 100%;
-	margin-bottom: 20px;
-	border: 1px solid $border-color;
-	border-collapse: separate;
-	border-radius: 4px;
-
-	thead {
-		background-color: #585858;
-
-		th {
-			@include zdss-clickable();
-			color: $zdss-color-chromium;
-			padding: 8px 5px;
-			white-space: nowrap;
-		}
-	}
-
-	tbody {
-
-		td {
-			padding: 8px;
-			line-height: 20px;
-			text-align: center;
-			vertical-align: middle;
-			border-top: 1px solid $border-color;
-		}
-	}
+   @extend .mui-table;
 }
 
 /*
@@ -94,29 +73,13 @@ Looks similar to list, doesn't need a table head
 */
 
 @mixin zdss-table-light() {
-	width: 100%;
-	margin-bottom: 20px;
-	border: 0;
-
-	tbody {
-
-		td {
-			padding: 8px;
-			line-height: 20px;
-            font-size: $zdss-fs-small;
-			text-align: left;
-			vertical-align: middle;
-			border-top: 1px solid $zdss-color-silver;
-		}
-
+    @extend .mui-table;
+	tbody {		
 		tr:nth-child(even) td {
 			background-color: $zdss-color-chromium;
 		}
 		tr:nth-child(odd) td {
 			background-color: white;
-		}
-		tr:last-child td {
-			border-bottom: 1px solid $zdss-color-silver;
 		}
 	}
 }
