@@ -1,4 +1,8 @@
-
+@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
+@import "../../../node_modules/muicss/lib/sass/mui/variables";
+@import "../../../node_modules/muicss/lib/sass/mui/mixins";
+@import "../../../node_modules/muicss/lib/sass/mui/panel";
+@import "../../../node_modules/muicss/lib/sass/mui/tabs";
 /*
 
 Horizontal list without background
@@ -15,27 +19,32 @@ Horizontal list without background
 @mixin zdss-list-horizontal(){
     list-style: none;
     > li {
-        @include zdss-block-light();
-        color: $zdss-color-obsidian;
+        background-color: $zdss-color-mercury;
         float: left;
-        margin: 0px;
-        background: inherit;
-        padding: 0.1em 0.5em;
+        margin: 6px;
+        padding: 6px 4px;
+        height: 16px;
         @include zdss-clickable();
         @include zdss-rounded();
     }
     > li:hover {
-        color: white;
-        background-color: $zdss-color-zdgreen;
+        box-shadow: 0 2px 2px 0 rgba(mui-color('black'), 0.16),
+                    0 0px 2px 0 rgba(mui-color('black'), 0.12);
+    }
+    > li:active {
+        background-color: darken($zdss-color-mercury, 10%);
     }
     > li[disabled] {
-        color: $zdss-color-mercury;
+        background-color: $zdss-color-mercury;
+        color: $mui-text-dark-secondary;
     }
     > li[disabled]:hover {
         color: $zdss-color-mercury;
+        box-shadow: 0;
         background: inherit;
     }
 }
+    
 /*
 
 Vertical list of rounded light elements
@@ -51,21 +60,15 @@ Vertical list of rounded light elements
 @mixin zdss-list-vertical(){
     list-style: none;
     padding-left: 0px;
-    > li:first-child {
-        @include zdss-rounded-top();
-    }
-    > li:last-child {
-        @include zdss-rounded-bottom();
-    }
     > li {
-        @include zdss-clickable();
-        @include zdss-block-light();
-        margin: 1px;
+        padding: 18px;
         border-radius: 0;
     }
     > li:hover {
-        color: $zdss-color-green;
-        background-color: $dark-background;
+        background-color:  $zdss-color-mercury;
+    }
+    > li:active {
+        background-color: darken($zdss-color-mercury, 10%);
     }
 }
 
@@ -89,12 +92,16 @@ The same, but darker
     > li {
         @include zdss-block-dark();
         background-color: $zdss-color-charcoal;
-        margin: 1px;
         border-radius: 0;
     }
     > li:hover {
-        color: $zdss-color-green;
+       
         background-color: $zdss-color-obsidian;
+    }
+    > li:active {
+        background-color: darken($zdss-color-obsidian, 10%);
+
+    
     }
 }
 
@@ -111,19 +118,21 @@ Accordion list
 */
 
 @mixin zdss-accordion ($height: 40px){
+    @extend .mui-panel;
+    margin: 8px;
+    padding: 0px;
     $size: $height/4;
     list-style: none;
     > li {
-        @include zdss-clickable();
-        @include zdss-block-light();
-        @include zdss-rounded();
-        margin: 4px;
+        text-align: left;
+        padding: 16px;
         position: relative;
-        height: $height;
     }
     > li:hover {
-        color: $zdss-color-green;
-        background-color: $dark-background;
+        background-color: $zdss-color-mercury;
+    }
+    > li:active {
+        background-color: darken($zdss-color-mercury, 10%);
     }
 }
 
@@ -166,18 +175,36 @@ Horizontal menu
 */
 
 @mixin zdss-menu-horizontal(){
+
     list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    display: inline-block;
     > li {
-        background-color: $zdss-color-mercury;
-        color: $zdss-color-obsidian;
         float: left;
-        font-size: $zdss-fs-normal;
-        padding: 0.5em 1em;
-        @include zdss-clickable;
-    }
-    > li:hover {
-        color: $zdss-color-chromium;
-        background-color: $zdss-color-obsidian;
+        display: block;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        color: $mui-tab-font-color;
+        cursor: default;
+        height: 48px;
+        line-height: 48px;
+        padding-left: 24px;
+        padding-right: 24px;
+  user-select: none;
+border-bottom: 2px;
+
+  &:hover {
+      border-bottom: 0;
+    border-bottom: 2px solid $mui-tab-border-color-active;
+}
+ &:active {
+    border-bottom: 2px solid $mui-tab-border-color-active;
+ }
     }
 }
 
@@ -203,36 +230,26 @@ Tabs
 */
 
 @mixin zdss-tabs(){
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    > li {
-        @include zdss-clickable;
-        @include zdss-rounded-top;
-        background-color: #B2B2B2;
-        color: $zdss-color-chromium;
-        float: left;
-        padding: 10px;
-        font-size: $zdss-fs-normal;
-        margin-right: 4px;
-    }
-    > li[active] {
-        background-color: $tabs-color1;
-        color: $zdss-color-green;
-    }
-    &:after {
-        clear:both;
-        display: block;
-        content: ' ';
+     @extend .zdss-menu-horizontal;
+     background: $mui-primary-color;
+     color: white;
+     margin-bottom: 0;
+     &:after {
+         clear:both;
+         display: block;
+         content: ' ';
+         margin-bottom: 0;
+     }
+     & > li:hover {
+        border-bottom: 0;
+      border-bottom: 2px solid white; 
     }
 }
 
 @mixin zdss-tab-content(){
-    background-color: $tabs-color1;
-    @include zdss-rounded-bottom;
-    border-top-right-radius: $border-radius;
-    padding: 10px;
-    color: $zdss-color-chromium;
+    margin-top: -8px;
+    padding: 16px;
+    background: white;
 }
 
 /*
@@ -261,7 +278,10 @@ Dropdown list
 */
 
 @mixin zdss-dropdown(){
-    > *:first-child {
+    > ul {
+        @extend .zdss-accordion; 
+    }
+        > *:first-child {
         position: relative;
         @include zdss-clickable;
         &:after {
@@ -274,27 +294,6 @@ Dropdown list
             width: 0px;
             height: 0px;
             content: '';
-        }
-    }
-    > ul {
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
-        > li {
-            background-color: $zdss-color-iron;
-            color: white;
-            padding: 7px;
-            @include zdss-clickable;
-            &:hover {
-                background-color: $zdss-color-green;
-                color: $zdss-color-charcoal;
-            }
-            &:first-child {
-                @include zdss-rounded-top;
-            }
-            &:last-child {
-                @include zdss-rounded-bottom;
-            }
         }
     }
 }
@@ -322,34 +321,7 @@ A list that can be used in popups(or elsewhere)
 */
 
 @mixin zdss-list-vertical-popup(){
-    @include zdss-list-vertical();
-    @include zdss-rounded();
-    background-color: $zdss-color-mercury;
-    border: 1px solid $zdss-color-obsidian;
-    margin: 0px;
-
-    li {
-        background: inherit;
-        margin: 0px;
-        border-bottom: 1px solid $zdss-color-obsidian;
-        text-transform: capitalize;
-        color: $zdss-color-obsidian;
-
-        &:hover {
-            color: $zdss-color-obsidian;
-            background: inherit;
-            font-weight: bold;
-        }
-
-        &.selected {
-            color: $zdss-color-obsidian;
-            font-weight: bold;
-        }
-    }
-
-    li:last-child {
-        border-bottom: none;
-    }
+    @extend .zdss-accordion; 
 }
 
 /*
@@ -378,6 +350,7 @@ Vertical list with line-separated items
 
 @mixin zdss-list-underlined(){
     list-style: none;
+        @extend .zdss-accordion; 
     > * {
         padding: 10px;
         border-bottom: 1px solid $zdss-color-mercury;
