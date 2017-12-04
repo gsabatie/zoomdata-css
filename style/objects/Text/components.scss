@@ -1,7 +1,10 @@
 
 @import "../Basics/vars.scss";
 @import "../Basics/mixins.scss";
-
+@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
+@import "../../../node_modules/muicss/lib/sass/mui/variables";
+@import "../../../node_modules/muicss/lib/sass/mui/mixins";
+@import "../../../node_modules/muicss/lib/sass/mui/typography";
 /*
 
 Links
@@ -32,8 +35,5 @@ Headings
 */
 
 @mixin zdss-h(){
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-weight: bold;
+    @extend .mui--text-title;
 }
