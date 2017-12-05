@@ -70,7 +70,8 @@ Vertical list of rounded light elements
     > li:active {
         background-color: darken($zdss-color-mercury, 10%);
     }
-}
+} 
+
 
 
 /*
@@ -90,7 +91,7 @@ The same, but darker
 @mixin zdss-list-vertical-dark(){
     @include zdss-list-vertical();
     > li {
-        @include zdss-block-dark();
+        color: $mui-text-light;
         background-color: $zdss-color-charcoal;
         border-radius: 0;
     }
@@ -178,7 +179,6 @@ Horizontal menu
 
     list-style: none;
     padding-left: 0;
-    margin-bottom: 0;
     white-space: nowrap;
     overflow-x: auto;
     display: inline-block;
@@ -195,19 +195,19 @@ Horizontal menu
         line-height: 48px;
         padding-left: 24px;
         padding-right: 24px;
-  user-select: none;
-border-bottom: 2px;
-
-  &:hover {
-      border-bottom: 0;
-    border-bottom: 2px solid $mui-tab-border-color-active;
-}
- &:active {
-    border-bottom: 2px solid $mui-tab-border-color-active;
- }
+        user-select: none;
+        border-bottom: 2px;
+        
+        &:hover {
+            color: $mui-tab-border-color-active;
+            border-bottom: 2px solid $mui-tab-border-color-active;
+        }
+        &:active {
+            color: $mui-tab-border-color-active;
+            border-bottom: 2px solid $mui-tab-border-color-active;
+        }
     }
 }
-
 
 $tabs-color1: $zdss-color-charcoal;
 
@@ -232,7 +232,7 @@ Tabs
 @mixin zdss-tabs(){
      @extend .zdss-menu-horizontal;
      background: $mui-primary-color;
-     color: white;
+     color: $mui-tab-border-color-active;
      margin-bottom: 0;
      &:after {
          clear:both;
@@ -242,7 +242,7 @@ Tabs
      }
      & > li:hover {
         border-bottom: 0;
-      border-bottom: 2px solid white; 
+      border-bottom: 2px solid $mui-tab-border-color-active; 
     }
 }
 

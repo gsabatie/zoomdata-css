@@ -1,4 +1,5 @@
 .zdss-app {
+    
     @import "inuit/inuit-defaults/settings.defaults";
 
     @import "inuit/inuit-functions/tools.functions";
@@ -13,6 +14,7 @@
 /*
 Components
 */
+
 @import "objects/Basics/components.scss";
 @import "objects/Buttons/components.scss";
 @import "objects/Icons/components.scss";
@@ -21,3 +23,7 @@ Components
 @import "objects/Lists/components.scss";
 @import "objects/Text/components.scss";
 @import "objects/Info/components.scss";
+
+@import "./MUIVars.scss";
+@import "./materialColor.scss";
+@import "../node_modules/muicss/lib/sass/mui.scss";

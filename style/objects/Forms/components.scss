@@ -389,7 +389,6 @@ Aligned form
 */
 
 @mixin zdss-form-aligned() {
-    @include zdss-list-underlined();
     font-size: $zdss-fs-small;
     h3 {
         margin: 0px;

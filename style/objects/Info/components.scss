@@ -20,7 +20,7 @@ Notification Alert (Info, Error, Success, Warning)
 
 @mixin zdss-notification-alert() {
 	@extend .mui-panel;
-	//	display: block;
+	//	display: block;zdss-button-primary
 //	position: absolute;
 //	left: 0;
 //	top: 0;
@@ -322,7 +322,7 @@ Tooltip(right)
 
 /*
 
-Tooltip(top)
+Tooltip(top)margin: 7px 3px 5px;
 
 <div class="zdss-tooltip-top">
     I am top tooltip!
@@ -393,7 +393,6 @@ Pop-up Dialog
 @mixin zdss-popup-dialog() {
 	@include zdss-block();
 	color: $mui-text-dark-secondary;
-	margin: 10px;
 	opacity: 0.9;
 	max-width: 280px;
 
@@ -410,7 +409,6 @@ Pop-up Dialog
 		@include zdss-overflow-with-dots;
 		font-weight: bold;
 		color: $mui-text-dark;
-		margin: 0 0 10px 0;
 		font-weight: normal;
 		overflow: hidden;
 		white-space: nowrap;
@@ -421,15 +419,12 @@ Pop-up Dialog
 	}
 
 	.dialog-body {
-		// background-color: $zdss-color-obsidian;
-		border-radius: 12px;
 
 		.subhead {
 			color: $mui-text-dark;
 			font-weight: bold;
 			font-size: $zdss-fs-normal;
 			letter-spacing: 0.2em;
-			margin: 7px 3px 5px;
 			text-transform: uppercase;
 		}
 
@@ -469,21 +464,18 @@ Pop-up Dialog Light
 
 @mixin zdss-popup-dialog-light() {
 	@include zdss-popup-dialog();
-	background: $zdss-color-silver;
 
 	.dialog-body {
 		background: $zdss-color-obsidian;
 		ul {
 			background-color: $zdss-color-obsidian;
-			border-color: $zdss-color-silver;
 			li {
 				color: $zdss-color-white;
-				border-color: inherit;
 				&:hover {
-					color: $zdss-color-white;
+					background-color: darken($zdss-color-obsidian, 10%);
 				}
 				&.selected {
-					color: $zdss-color-green;
+					background:  darken($zdss-color-obsidian, 15%);
 				}
 			}
 		}

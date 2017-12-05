@@ -35,12 +35,12 @@ Typical dark block
 
 @mixin zdss-block-dark(){
     background-color: $dark-background;
-    color: white;
+    color: $mui-text-light;
     @include zdss-block();
 }
 
 
-@mixin zdss-icon-close($size: 10px, $color: white){
+@mixin zdss-icon-close($size: 10px, $color:  $mui-text-light){
     @include zdss-clickable;
     width: ($size*2) + ($size/10);
     position: relative;

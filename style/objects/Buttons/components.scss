@@ -34,7 +34,7 @@ A majority of buttons in the site are built from the same base class.
 }
 
 @mixin zdss-button-danger() {
-    @include zdss-button();
+   @include zdss-button();
     @extend .mui-btn--danger;
 }
 
@@ -55,10 +55,35 @@ Additional buttons that are useful for stuff.
 */
 
 @mixin zdss-button-rail(){
-    @include zdss-button();
+    display: inline-block;
+    height: $mui-btn-height;
+    padding: 0 $mui-btn-padding-horizontal;
+    margin: $mui-btn-margin-vertical 0;
+    
+    // Look and feel
+    border: none;
+    border-radius: $mui-btn-border-radius;
+    cursor: pointer;
+    touch-action: manipulation;
+    background-image: none;  // reset unusual Firefox-on-Android
+  
+    // Typography
+    text-align: center;
+    line-height: $mui-btn-height;
+    vertical-align: middle;
+    white-space: nowrap;
+    user-select: none;
+    font-size: $mui-btn-font-size;
+    font-family: inherit;
+    letter-spacing: 0.03em;
+  
+    // For ripples
+    position: relative;
+  overflow: hidden;
+
     height: 54px;
     width: 72px;
-    background-color: $zdss-color-iron;
+    background-color:transparent;
     border-radius: 0;
     padding: 7px 0;
     .text {
@@ -68,12 +93,7 @@ Additional buttons that are useful for stuff.
         font-size: $zdss-fs-small;
         font-weight: normal;
     }
-    &.active {
-        background-color: $zdss-color-charcoal;
-    }
-    &:hover{
-        background-color: #767676;
-    }
+  
 }
 
 /*
@@ -91,8 +111,16 @@ Buttons meant to look like a circle.
 */
 
 @mixin zdss-button-circular(){
-    @include zdss-button-primary();
+    @include zdss-button;
+    @include button-variant(
+        $mui-text-light,
+        $mui-accent-color
+       );
+     
+
     @extend .mui-btn--fab;
+ 
+
 }
 
 /*
@@ -123,28 +151,15 @@ Buttons for the axis of visualizations
     Button (button.button.axis)
 </button>
 
-*/ 
-    // font-size: $zdss-fs-large;
-    // line-height: $default-button-height - 2px;
-    // padding: 0;
-    // border-radius: 50%;
-    // width: $default-button-height;
-    // height: $default-button-height;
-    // background-color: $zdss-color-iron;
-    // box-shadow: 2px 2px rgba(89,89,89,0.4), -1px -1px rgba(255,255,255,0.5);
-    
-    // &:hover{
-    //     color: $zdss-color-white;
-    //     background-color: $zdss-color-charcoal;
-    // }
-    // &.active{
-    //     color: $zdss-color-gold;
-    //     background-color: $zdss-color-charcoal;
-    // }
+*/
 @mixin zdss-button-axis(){
-    @include zdss-button-primary();
+    @include zdss-button();
+    @include button-variant(
+        $mui-text-light,
+        $mui-primary-color
+
+       );
     padding: 0 12px;
-    background-color: $mui-primary-color-dark;
     z-index: 1;
     text-transform: capitalize;
     white-space: nowrap;
