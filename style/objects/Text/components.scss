@@ -1,17 +1,16 @@
-
 @import "../Basics/vars.scss";
 @import "../Basics/mixins.scss";
 @import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
 @import "../../../node_modules/muicss/lib/sass/mui/variables";
 @import "../../../node_modules/muicss/lib/sass/mui/mixins";
 @import "../../../node_modules/muicss/lib/sass/mui/typography";
-
 @font-face {
     font-family: "Roboto";
     src: url(fonts/Roboto/Roboto-Regular.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
 
 /*
 
@@ -21,14 +20,15 @@ Links
 
 */
 
-@mixin zdss-link(){
+@mixin zdss-link() {
     color: $mui-primary-color;
     text-decoration: none;
-    &:hover{
+    &:hover {
         color: $mui-primary-color-dark;
         text-decoration: none;
     }
 }
+
 
 /*
 
@@ -43,9 +43,8 @@ Headings
 
 */
 
-@mixin zdss-h(){
-   
-}
+@mixin zdss-h() {}
+
 body {
-font-family: Roboto;
+    font-family: Roboto;
 }

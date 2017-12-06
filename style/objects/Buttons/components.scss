@@ -1,15 +1,12 @@
-
 @import "../Basics/vars.scss";
 @import "../Basics/mixins.scss";
-
 @import "vars.scss";
 @import "mixins.scss";
-
-
 @import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
 @import "../../../node_modules/muicss/lib/sass/mui/variables";
 @import "../../../node_modules/muicss/lib/sass/mui/mixins";
 @import "../../../node_modules/muicss/lib/sass/mui/buttons";
+
 /*
 Buttons
 
@@ -22,21 +19,20 @@ A majority of buttons in the site are built from the same base class.
 
 */
 
-
-@mixin zdss-button(){
+@mixin zdss-button() {
     @extend .mui-btn;
-
 }
 
-@mixin zdss-button-primary(){
+@mixin zdss-button-primary() {
     @include zdss-button();
     @extend .mui-btn--primary;
 }
 
 @mixin zdss-button-danger() {
-   @include zdss-button();
+    @include zdss-button();
     @extend .mui-btn--danger;
 }
+
 
 /*
 Rail Button
@@ -54,19 +50,16 @@ Additional buttons that are useful for stuff.
 
 */
 
-@mixin zdss-button-rail(){
+@mixin zdss-button-rail() {
     display: inline-block;
     height: $mui-btn-height;
     padding: 0 $mui-btn-padding-horizontal;
-    margin: $mui-btn-margin-vertical 0;
-    
-    // Look and feel
+    margin: $mui-btn-margin-vertical 0; // Look and feel
     border: none;
     border-radius: $mui-btn-border-radius;
     cursor: pointer;
     touch-action: manipulation;
-    background-image: none;  // reset unusual Firefox-on-Android
-  
+    background-image: none; // reset unusual Firefox-on-Android
     // Typography
     text-align: center;
     line-height: $mui-btn-height;
@@ -75,15 +68,12 @@ Additional buttons that are useful for stuff.
     user-select: none;
     font-size: $mui-btn-font-size;
     font-family: inherit;
-    letter-spacing: 0.03em;
-  
-    // For ripples
+    letter-spacing: 0.03em; // For ripples
     position: relative;
-  overflow: hidden;
-
+    overflow: hidden;
     height: 54px;
     width: 72px;
-    background-color:transparent;
+    background-color: transparent;
     border-radius: 0;
     padding: 7px 0;
     .text {
@@ -93,8 +83,8 @@ Additional buttons that are useful for stuff.
         font-size: $zdss-fs-small;
         font-weight: normal;
     }
-  
 }
+
 
 /*
 Circular Button
@@ -110,18 +100,12 @@ Buttons meant to look like a circle.
 
 */
 
-@mixin zdss-button-circular(){
+@mixin zdss-button-circular() {
     @include zdss-button;
-    @include button-variant(
-        $mui-text-light,
-        $mui-accent-color
-       );
-     
-
+    @include button-variant( $mui-text-light, $mui-accent-color);
     @extend .mui-btn--fab;
- 
-
 }
+
 
 /*
 Rounded Button
@@ -133,7 +117,8 @@ Buttons meant to look rounded.
 </button>
 
 */
-@mixin zdss-button-rounded(){
+
+@mixin zdss-button-rounded() {
     @include zdss-button();
     width: $default-button-height;
     height: $default-button-height;
@@ -152,23 +137,19 @@ Buttons for the axis of visualizations
 </button>
 
 */
-@mixin zdss-button-axis(){
-    @include zdss-button();
-    @include button-variant(
-        $mui-text-light,
-        $mui-primary-color
 
-       );
+@mixin zdss-button-axis() {
+    @include zdss-button();
+    @include button-variant( $mui-text-light, $mui-primary-color);
     padding: 0 12px;
     z-index: 1;
     text-transform: capitalize;
     white-space: nowrap;
-    &:hover{
-       
-        &.metric{
+    &:hover {
+        &.metric {
             background-color: $mui-primary-color-light;
         }
-        &.attribute{
+        &.attribute {
             background-color: $mui-accent-color-dark;
         }
     }
@@ -189,7 +170,7 @@ A button group is a series of buttons laid out next to each other, all part of o
 
 */
 
-@mixin zdss-button-group(){
+@mixin zdss-button-group() {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
@@ -197,10 +178,8 @@ A button group is a series of buttons laid out next to each other, all part of o
     white-space: nowrap;
     overflow-x: auto;
     display: inline-block;
-    .zdss-button{
+    .zdss-button {
         display: inline-block;
-
-      
         white-space: nowrap;
         text-transform: uppercase;
         font-weight: 500;
@@ -211,19 +190,19 @@ A button group is a series of buttons laid out next to each other, all part of o
         line-height: 48px;
         padding-left: 24px;
         padding-right: 24px;
-         user-select: none;
-        
-       &.selected{
+        user-select: none;
+        &.selected {
             border-bottom: 2px solid $mui-tab-border-color-active;
-            @if $mui-tab-font-color-active == null {
+            @if $mui-tab-font-color-active==null {
                 color: $mui-tab-font-color;
-              } @else {
+            }
+            @else {
                 color: $mui-tab-font-color-active;
-      }
+            }
         }
     }
-  
 }
+
 
 /*
 
@@ -235,9 +214,8 @@ Another button for vis popup
 
 */
 
-@mixin zdss-button-vis-popup(){
+@mixin zdss-button-vis-popup() {
     @include zdss-button();
     @extend .mui-btn--primary;
     @extend .mui-btn--flat;
 }
-

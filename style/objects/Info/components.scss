@@ -6,6 +6,7 @@
 @import "../../../node_modules/muicss/lib/sass/mui/variables";
 @import "../../../node_modules/muicss/lib/sass/mui/mixins";
 @import "../../../node_modules/muicss/lib/sass/mui/panel";
+
 /*
 
 Notification Alert (Info, Error, Success, Warning)
@@ -19,54 +20,51 @@ Notification Alert (Info, Error, Success, Warning)
 */
 
 @mixin zdss-notification-alert() {
-	@extend .mui-panel;
-	//	display: block;zdss-button-primary
-//	position: absolute;
-//	left: 0;
-//	top: 0;
-//	right: 0;
-//	line-height: 26px;
+	@extend .mui-panel; //	display: block;zdss-button-primary
+	//	position: absolute;
+	//	left: 0;
+	//	top: 0;
+	//	right: 0;
+	//	line-height: 26px;
 	height: 20px;
 	padding: 14px 24px 14px 24px;
-//	margin-bottom: 5px;
-//	border-radius: 0;
-//	border: none;
-//	z-index: 3000;
-//
-	color: 				$mui-text-light;
-	background-color: 	$mui-text-dark;
-//	border-color: 		$zdss-nt-alert-border-color;
-
+	//	margin-bottom: 5px;
+	//	border-radius: 0;
+	//	border: none;
+	//	z-index: 3000;
+	//
+	color: $mui-text-light;
+	background-color: $mui-text-dark;
+	//	border-color: 		$zdss-nt-alert-border-color;
 	.close {
 		@include zdss-icon-close(8px, $zdss-color-mercury);
-        float: right;
-        margin: 3px;
-        width: 21px;
+		float: right;
+		margin: 3px;
+		width: 21px;
 	}
-
 }
 
-@mixin zdss-notification-alert-error(){
+@mixin zdss-notification-alert-error() {
 	@include zdss-notification-alert();
-	color: 				$zdss-nt-alert-error-text-color;
-	background-color: 	$mui-danger-color;
-//	border-color: 		$zdss-nt-alert-error-border-color;	
+	color: $zdss-nt-alert-error-text-color;
+	background-color: $mui-danger-color;
+	//	border-color: 		$zdss-nt-alert-error-border-color;	
 }
 
-@mixin zdss-notification-alert-success(){
+@mixin zdss-notification-alert-success() {
 	@include zdss-notification-alert();
-	color: 				$zdss-nt-alert-success-text-color;
-	background-color: 	$zdss-nt-alert-success-backround;
-	border-color: 		$zdss-nt-alert-success-border-color;
-
+	color: $zdss-nt-alert-success-text-color;
+	background-color: $zdss-nt-alert-success-backround;
+	border-color: $zdss-nt-alert-success-border-color;
 }
 
-@mixin zdss-notification-alert-warning(){
+@mixin zdss-notification-alert-warning() {
 	@include zdss-notification-alert();
-	color: 				$zdss-nt-alert-warning-text-color;
-	background-color: 	$mui-text-accent-hint;
-	border-color: 		$zdss-nt-alert-warning-border-color;
+	color: $zdss-nt-alert-warning-text-color;
+	background-color: $mui-text-accent-hint;
+	border-color: $zdss-nt-alert-warning-border-color;
 }
+
 
 /*
 
@@ -99,9 +97,8 @@ Nofitications Popup
 
 */
 
-@mixin zdss-notification-popup(){
+@mixin zdss-notification-popup() {
 	@extend .mui-panel;
-    
 	padding: 0;
 	.notification-head {
 		margin: 0;
@@ -119,10 +116,8 @@ Nofitications Popup
 			@include zdss-icon-x-circle();
 		}
 	}
-
 	.notification-body {
 		padding: 12px;
-
 		.notification-icon {
 			float: left;
 			width: 30px;
@@ -133,18 +128,13 @@ Nofitications Popup
 			text-align: center;
 			@include zdss-icon-checkmark();
 		}
-
-		.notification-description {
-
-		}
+		.notification-description {}
 	}
 }
 
-@mixin zdss-notification-popup-error(){
+@mixin zdss-notification-popup-error() {
 	@include zdss-notification-popup();
-
 	border-color: $zdss-nt-popup-border-color-error;
-		
 	.notification-head {
 		background: $zdss-nt-popup-border-color-error;
 	}
@@ -155,6 +145,7 @@ Nofitications Popup
 	}
 }
 
+
 /*
 
 Notification Error Message
@@ -164,13 +155,10 @@ Notification Error Message
 	<text>Internar Server Error</text>
 </div>
 
-*/ 
-
+*/
 
 @mixin zdss-notification-msg() {
 	@include zdss-notification-alert-error();
-
-
 }
 
 
@@ -185,31 +173,32 @@ Modal popup
 
 */
 
-@mixin zdss-popup-modal($show-arrow: false){
-    @include zdss-block-dark;
-    @include zdss-shadow();
-    position: relative;
-    @if $show-arrow {
-        &:after {
-            @include zdss-block-dark();
-            border-radius: 0;
-            transform: rotate(45deg);
-            content: ' ';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            bottom: -15px;
-            right: 10px;
-            z-index: -1;
-        }
-    } 
-    .zdss-close {
-        @include zdss-icon-close(8px, $zdss-color-mercury);
-        float: right;
-        margin: 3px;
-        width: 21px;
-    }
+@mixin zdss-popup-modal($show-arrow: false) {
+	@include zdss-block-dark;
+	@include zdss-shadow();
+	position: relative;
+	@if $show-arrow {
+		&:after {
+			@include zdss-block-dark();
+			border-radius: 0;
+			transform: rotate(45deg);
+			content: ' ';
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			bottom: -15px;
+			right: 10px;
+			z-index: -1;
+		}
+	}
+	.zdss-close {
+		@include zdss-icon-close(8px, $zdss-color-mercury);
+		float: right;
+		margin: 3px;
+		width: 21px;
+	}
 }
+
 
 /*
 
@@ -225,33 +214,29 @@ Modal popup light
 @mixin zdss-popup-modal-light() {
 	@include zdss-popup-modal();
 	@include zdss-block-light;
-
 	color: #333333;
-
 	&:after {
 		background-color: inherit;
 	}
-
 	.zdss-close {
 		@include zdss-icon-close(8px, $zdss-color-charcoal);
-                width: 21px;
+		width: 21px;
 	}
 }
 
-
-@mixin zdss-popup(){
-	  @include zdss-block-dark;
-    @include zdss-shadow();
-    position: relative;
-    padding: 10px 15px;
-   
-    .zdss-close {
-        @include zdss-icon-close(8px, $zdss-color-mercury);
-        float: right;
-        margin: 3px;
-        width: 21px;
-    }
+@mixin zdss-popup() {
+	@include zdss-block-dark;
+	@include zdss-shadow();
+	position: relative;
+	padding: 10px 15px;
+	.zdss-close {
+		@include zdss-icon-close(8px, $zdss-color-mercury);
+		float: right;
+		margin: 3px;
+		width: 21px;
+	}
 }
+
 
 /*
 
@@ -264,8 +249,8 @@ Popup (left)
 
 */
 
-@mixin zdss-popup-left(){
-    @include zdss-popup();
+@mixin zdss-popup-left() {
+	@include zdss-popup();
 }
 
 
@@ -280,15 +265,14 @@ Popup (right)
 
 */
 
-@mixin zdss-popup-right(){
-    @include zdss-popup();
+@mixin zdss-popup-right() {
+	@include zdss-popup();
 }
 
-
-@mixin zdss-tooltip(){
-    @include zdss-notification-alert-warning();
-    
+@mixin zdss-tooltip() {
+	@include zdss-notification-alert-warning();
 }
+
 
 /*
 
@@ -300,10 +284,10 @@ Tooltip(left)
 
 */
 
-@mixin zdss-tooltip-left(){
-    @include zdss-tooltip();
-  
+@mixin zdss-tooltip-left() {
+	@include zdss-tooltip();
 }
+
 
 /*
 
@@ -315,10 +299,10 @@ Tooltip(right)
 
 */
 
-@mixin zdss-tooltip-right(){
-    @include zdss-tooltip();
-
+@mixin zdss-tooltip-right() {
+	@include zdss-tooltip();
 }
+
 
 /*
 
@@ -330,10 +314,10 @@ Tooltip(top)margin: 7px 3px 5px;
 
 */
 
-@mixin zdss-tooltip-top(){
-    @include zdss-tooltip();
-
+@mixin zdss-tooltip-top() {
+	@include zdss-tooltip();
 }
+
 
 /*
 
@@ -345,10 +329,10 @@ Tooltip(bottom)
 
 */
 
-@mixin zdss-tooltip-bottom(){
-    @include zdss-tooltip();
-
+@mixin zdss-tooltip-bottom() {
+	@include zdss-tooltip();
 }
+
 
 /*
 Pop-up Dialog
@@ -395,7 +379,6 @@ Pop-up Dialog
 	color: $mui-text-dark-secondary;
 	opacity: 0.9;
 	max-width: 280px;
-
 	.close {
 		position: absolute;
 		cursor: pointer;
@@ -404,7 +387,6 @@ Pop-up Dialog
 		line-height: 24px;
 		@include zdss-icon-x-circle();
 	}
-
 	.dialog-header {
 		@include zdss-overflow-with-dots;
 		font-weight: bold;
@@ -417,9 +399,7 @@ Pop-up Dialog
 		line-height: 22px;
 		width: 92%;
 	}
-
 	.dialog-body {
-
 		.subhead {
 			color: $mui-text-dark;
 			font-weight: bold;
@@ -427,25 +407,23 @@ Pop-up Dialog
 			letter-spacing: 0.2em;
 			text-transform: uppercase;
 		}
-
 		ul {
 			@include zdss-list-vertical-popup();
 		}
 	}
-
 	.dialog-actions {
 		padding-top: 8px;
 		button {
 			@include zdss-button-vis-popup();
 		}
 	}
-
 	&:after {
 		background-color: inherit;
 		z-index: -1;
 		@include zdss-shadow();
 	}
 }
+
 
 /*
 Pop-up Dialog Light
@@ -464,7 +442,6 @@ Pop-up Dialog Light
 
 @mixin zdss-popup-dialog-light() {
 	@include zdss-popup-dialog();
-
 	.dialog-body {
 		background: $zdss-color-obsidian;
 		ul {
@@ -475,7 +452,7 @@ Pop-up Dialog Light
 					background-color: darken($zdss-color-obsidian, 10%);
 				}
 				&.selected {
-					background:  darken($zdss-color-obsidian, 15%);
+					background: darken($zdss-color-obsidian, 15%);
 				}
 			}
 		}

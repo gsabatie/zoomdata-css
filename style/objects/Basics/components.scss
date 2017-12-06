@@ -1,19 +1,19 @@
-   
-@import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
-@import "../../../node_modules/muicss/lib/sass/mui/variables";
-@import "../../../node_modules/muicss/lib/sass/mui/mixins";
-@import "../../../node_modules/muicss/lib/sass/mui/panel";
-/*
+   @import "../../../node_modules/muicss/lib/sass/mui-colors.scss";
+   @import "../../../node_modules/muicss/lib/sass/mui/variables";
+   @import "../../../node_modules/muicss/lib/sass/mui/mixins";
+   @import "../../../node_modules/muicss/lib/sass/mui/panel";
+   /*
 
 Typical block
 
 <div class="zdss-block">Lorem ipsum</div>
 
 */
-@mixin zdss-block(){
-    @extend .mui-panel;
-}
-/*
+
+   @mixin zdss-block() {
+       @extend .mui-panel;
+   }
+   /*
 
 Typical light block
 
@@ -21,11 +21,11 @@ Typical light block
 
 */
 
-@mixin zdss-block-light(){
-    background-color: $light-background;
-    @include zdss-block();
-}
-/*
+   @mixin zdss-block-light() {
+       background-color: $light-background;
+       @include zdss-block();
+   }
+   /*
 
 Typical dark block
 
@@ -33,41 +33,40 @@ Typical dark block
 
 */
 
-@mixin zdss-block-dark(){
-    background-color: $dark-background;
-    color: $mui-text-light;
-    @include zdss-block();
-}
+   @mixin zdss-block-dark() {
+       background-color: $dark-background;
+       color: $mui-text-light;
+       @include zdss-block();
+   }
 
+   @mixin zdss-icon-close($size: 10px, $color : $mui-text-light) {
+       @include zdss-clickable;
+       width: ($size*2) + ($size/10);
+       position: relative;
+       &:after {
+           content: ' ';
+           border-top: 2px solid $color;
+           border-left: 2px solid $color;
+           transform: rotate(-45deg);
+           position: absolute;
+           width: $size;
+           height: $size;
+           right: 0px;
+       }
+       &:before {
+           content: ' ';
+           border-top: 2px solid $color;
+           border-left: 2px solid $color;
+           transform: rotate(135deg);
+           position: absolute;
+           width: $size;
+           height: $size;
+           left: 0px;
+       }
+   }
 
-@mixin zdss-icon-close($size: 10px, $color:  $mui-text-light){
-    @include zdss-clickable;
-    width: ($size*2) + ($size/10);
-    position: relative;
-    &:after {
-        content: ' ';
-        border-top: 2px solid $color;        
-        border-left: 2px solid $color;
-        transform: rotate(-45deg);
-        position: absolute;
-        width: $size;
-        height: $size;
-        right:0px;
-    }
-    &:before {
-        content: ' ';
-        border-top: 2px solid $color;        
-        border-left: 2px solid $color;
-        transform: rotate(135deg);
-        position: absolute;
-        width: $size;
-        height: $size;
-        left:0px;
-    }
-}
-
-@mixin fifty(){
-    float: left;
-    width: 49%;
-    box-sizing: border-box;
-}
+   @mixin fifty() {
+       float: left;
+       width: 49%;
+       box-sizing: border-box;
+   }
