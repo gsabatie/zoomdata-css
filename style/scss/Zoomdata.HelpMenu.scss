@@ -1,0 +1,66 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.zd-help-menu-wrapper {
+  width: 200px;
+  position: absolute;
+  top: 36px;
+  right: 14px;
+  border: 5px solid #BEBEBE;
+  border-top: none;
+  color: #595959;
+  font-weight: bold;
+  z-index: 2;
+
+  .help-menu {
+    list-style: none;
+    margin-left: 0px;
+
+    li.help-menu-item {
+      span {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: calc(100% - 25px);
+        margin-left: 20px;
+      }
+
+      height: 35px;
+      line-height: 35px;
+      background-color: #D5D5D5;
+      border-top: 1px solid #BEBEBE;
+      cursor: pointer;
+      -webkit-transition: background 200ms ease;
+      -moz-transition: background 200ms ease;
+      -ms-transition: background 200ms ease;
+      -o-transition: background 200ms ease;
+      transition: background 200ms ease;
+
+      &:hover {
+        background-color: #414141;
+        color: #DADF3B;
+      }
+    }
+  }
+}
+
+.help-menu-overlay {
+  img {
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2048;
+}

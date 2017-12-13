@@ -1,0 +1,644 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+#title-bar {
+  position: absolute;
+}
+
+#left-bar {
+  float: left;
+}
+
+#right-bar {
+  float: right;
+  width: 80px;
+}
+
+#toolbar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+}
+
+#visualization {
+  position: absolute;
+}
+
+li.bar-button {
+  cursor: default;
+}
+
+#left-bar {
+  ul {
+    margin: 0;
+    padding: 8px 0px 0px 0px;
+
+    > li {
+      padding: 0px 8px 4px 8px;
+
+      > div {
+        height: 56px;
+        width: 82px;
+        border-radius: 10px;
+        background-color: gray;
+
+        &.hover {
+          /*.no-touch #left-bar ul > li > div:hover { */
+          background-color: #333;
+        }
+
+        .image {
+          margin: 0 auto;
+          width: 64px;
+          height: 32px;
+          background: none no-repeat center center;
+          background-image: url("../images/webInterface_icons_sprite.svg?v=09040708");
+          background-position: -10px 0px;
+        }
+
+        &:hover .image {}
+      }
+
+      div .text {
+        margin: 0 auto;
+        padding-top: 0px;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+      }
+    }
+  }
+
+  > ul > li {
+    &#data-palette-button > div .image {
+      background-position: -10px -43px;
+    }
+
+    &#filters-palette-button {
+      > div .image {
+        background-position: -10px -93px;
+      }
+
+      &.hasFilters > div .image {
+        background-position: -92px -93px;
+      }
+    }
+
+    &#style-palette-button > div .image {
+      background-position: -10px -238px;
+    }
+
+    &#comparison-palette-button {
+      > div .image {
+        background-position: -10px -142px;
+      }
+
+      &.hasCompare > div .image {
+        background-position: -92px -142px;
+      }
+    }
+
+    &#ordering-palette-button > div .image {
+      background-position: -10px -191px;
+    }
+  }
+}
+
+#toolbar {
+  > ul {
+    margin: 0;
+    display: table;
+    table-layout: fixed;
+    list-style: none;
+    padding: 0px 6px;
+
+    > li {
+      padding: 8px 2px 8px 2px;
+      display: table-cell;
+      float: left;
+
+      &.left {
+        float: left;
+      }
+
+      &.right {
+        float: right;
+
+        > div {
+          background: none;
+        }
+      }
+
+      > div {
+        width: 82px;
+        height: 56px;
+        border-radius: 10px;
+        background-color: #e7e7e6;
+
+        &:hover {
+          background: #333;
+        }
+      }
+    }
+  }
+
+  .hovered {
+    background: #333;
+  }
+
+  > ul > li {
+    > div .image {
+      margin: 0 auto;
+      width: 64px;
+      height: 32px;
+      background: url("../images/webInterface_icons_sprite.svg?v=09040708") no-repeat center center;
+      background-position: -10px 0px;
+    }
+
+    &.right > div {
+      padding: 2px;
+      height: 76px;
+      width: 76px;
+
+      &.popover {
+        height: auto;
+        width: auto;
+        background: #fff;
+
+        .popover-content {
+          overflow: hidden;
+        }
+      }
+
+      &:hover {
+        background: none;
+
+        div.image {
+          background-color: #333;
+        }
+
+        .text {
+          color: #808080 !important;
+        }
+      }
+
+      .image {
+        background-color: #e7e7e6;
+        width: 37px;
+        height: 37px;
+        border-radius: 100%;
+        background-position: -22px 12px;
+      }
+    }
+
+    &#bookmark > div {
+      .image {
+        background-position: -22px -393px;
+      }
+
+      &:hover div.image, &.active div.image {
+        background-position: -104px -393px;
+        background-color: #333;
+      }
+    }
+
+    &#share > div {
+      .image {
+        background-position: -22px -441px;
+      }
+
+      &:hover div.image, &.active div.image {
+        background-position: -104px -441px;
+        background-color: #333;
+      }
+    }
+
+    > div .image svg {
+      fill: #333;
+    }
+
+    div .text {
+      margin: 0 auto;
+      padding-top: 0px;
+      text-align: center;
+      color: #808080;
+      font-size: 12px;
+    }
+
+    &.bar-item > div:hover {
+      background-color: #e7e7e6;
+    }
+  }
+}
+
+.ui-datepicker-trigger {
+  visibility: hidden;
+}
+
+#toolbar {
+  > ul > li {
+    &.bar-button > div {
+      &:hover .text, &.hovered .text {
+        color: white;
+      }
+    }
+
+    &#date-picker-button > div {
+      .image {
+        background-position: -8px -295px;
+      }
+
+      &:hover .image, &.hovered .image {
+        background-position: -90px -295px;
+      }
+    }
+
+    &#timecontrol-button > div {
+      .image {
+        background-position: -6px -345px;
+      }
+
+      &:hover .image, &.hovered .image {
+        background-position: -88px -345px;
+      }
+    }
+  }
+
+  #timecontrol-button .popover {
+    height: auto;
+    width: auto;
+    min-width: 320px;
+    overflow: hidden;
+
+    &.top .arrow {
+      left: 12%;
+    }
+  }
+
+  li {
+    .popover {
+      background-color: #e7e7e6;
+      width: 100%;
+      height: 100%;
+      padding: 0px;
+
+      &:hover {
+        background-color: #e7e7e6;
+      }
+
+      &.top .arrow:after {
+        border-top-color: #e7e7e6;
+      }
+
+      .popover-title {
+        background-color: #333;
+        color: white;
+        text-align: center;
+      }
+
+      .popover-content {
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding: 0px;
+
+        ul {
+          list-style: none;
+          margin: 0px 0px 20px 0px;
+
+          li.time-window-item {
+            border-bottom: 1px solid #aaa;
+            height: 40px;
+            cursor: default;
+
+            &.checked {
+              font-weight: bold;
+              color: #336399;
+            }
+
+            &.disabled {
+              color: #aaa;
+
+              &:hover {
+                color: #aaa;
+                background-color: #e7e7e6;
+              }
+            }
+
+            &:hover {
+              background-color: #666;
+              color: white;
+            }
+
+            .name {
+              display: table-cell;
+              float: left;
+              padding: 8px 16px;
+            }
+
+            .checkbox {
+              display: table-cell;
+              float: left;
+              padding: 8px 16px;
+              margin-left: 8px;
+            }
+
+            &.checked .checkbox {
+              background: url("../images/Checkmark.svg") no-repeat center center;
+              background-size: 17px 17px;
+            }
+
+            &.custom {
+              .disclosure {
+                display: table-cell;
+                float: right;
+                padding: 8px 16px;
+                background-image: url("../images/glyphicons-halflings.png");
+                background-repeat: no-repeat;
+                width: 14px;
+                background-position: -458px -74px;
+                margin-top: 13px;
+              }
+
+              &:hover .disclosure {
+                background-image: url("../images/glyphicons-halflings-white.png");
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &#bookmark .popover, &#share .popover {
+      background-color: #57585A;
+      color: #F4F4F4;
+
+      .popover-content {
+        background-color: #57585A;
+        color: #F4F4F4;
+      }
+    }
+
+    &#bookmark .popover.top .arrow:after, &#share .popover.top .arrow:after {
+      border-top-color: #57585A;
+    }
+
+    &#bookmark .popover .popover-title, &#share .popover .popover-title {
+      background-color: #57585A;
+      border: 0;
+      color: #F4F4F4;
+    }
+
+    &#bookmark .popover .popover-content label, &#share .popover .popover-content label {
+      font-size: 12px;
+      cursor: default;
+    }
+  }
+}
+
+#zd-overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.time-table {
+  margin: 8px 0px 0px 10px;
+}
+
+#more-button {
+  display: none;
+}
+
+#time-control {
+  height: 380px;
+  overflow: hidden;
+}
+
+#time-window {
+  position: absolute;
+  width: 100%;
+}
+
+#time-control {
+  .custom-time-window {
+    position: absolute;
+    width: 100%;
+  }
+
+  .apply-button {
+    padding: 10px 16px;
+    margin: 16px;
+    border-radius: 8px;
+    background: #5cacd2;
+    font-weight: bold;
+    width: 120px;
+    text-align: center;
+    float: left;
+    color: white;
+
+    &.enabled {
+      background: #336399;
+      cursor: pointer;
+
+      &:hover {
+        background: #115288;
+      }
+    }
+  }
+
+  .custom-time-window {
+    .title-label {
+      font-weight: bold;
+      color: #666;
+      font-size: 1.01em;
+      margin: 16px 16px 0px 16px;
+    }
+
+    .label {
+      font-weight: normal;
+      color: #333;
+      background: none;
+      font-size: 1em;
+      padding: 0px;
+      margin: 8px 16px 4px 16px;
+    }
+
+    .date {
+      background: #4c4d4d;
+      margin: 2px 16px 2px 16px;
+      border-radius: 12px;
+      height: 44px;
+
+      &:hover {
+        background: #666;
+      }
+
+      .text {
+        display: table-cell;
+        float: left;
+        font-size: 1em;
+        color: white;
+        margin: 11px 10px;
+      }
+
+      .image {
+        display: table-cell;
+        float: right;
+        background-image: url("../images/glyphicons-halflings-white.png");
+        background-repeat: no-repeat;
+        width: 14px;
+        height: 14px;
+        margin: 15px 10px;
+      }
+
+      &.day .image {
+        background-position: -192px -120px !important;
+      }
+
+      &.time .image {
+        background-position: -48px -24px !important;
+      }
+    }
+  }
+
+  .day-picker {
+    position: absolute;
+    width: 100%;
+
+    #day-datepicker-container .datepicker {
+      top: 16px !important;
+      left: 40px !important;
+      bottom: auto !important;
+      overflow: hidden !important;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background: white;
+      margin: 16px;
+    }
+
+    #apply-button {
+      top: 248px;
+      position: absolute;
+    }
+  }
+
+  .time-picker {
+    position: absolute;
+    width: 100%;
+  }
+
+  #to-radio {
+    margin: 4px 16px 4px 16px;
+
+    span {
+      margin: 0px 16px 4px 0px;
+    }
+
+    input {
+      margin: 0px 4px 4px 0px;
+    }
+  }
+}
+
+#timecontrol-button {
+  .popover-title {
+    line-height: 24px;
+  }
+
+  #back-button {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    background-image: url("../images/glyphicons-halflings-white.png");
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 14px;
+    background-position: -430px -74px;
+    cursor: pointer;
+
+    &:hover {
+      background-image: url("../images/glyphicons-halflings.png");
+    }
+  }
+}
+
+#time-timepicker-container {
+  background: white;
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: #ccc;
+  border-style: solid;
+  width: 210px;
+  padding: 10px;
+  margin: 16px auto 8px auto;
+
+  .separator {
+    padding-top: 4px;
+  }
+
+  a {
+    margin: 0px 32px;
+  }
+
+  input {
+    margin-top: 3px;
+    margin-bottom: 2px;
+    text-align: center;
+  }
+
+  .ampm {
+    input {
+      width: 32px;
+      margin-left: 4px;
+    }
+
+    a {
+      margin: 0px 20px;
+    }
+  }
+}
+
+#comparisonDatePicker .datepicker {
+  top: 16px !important;
+  left: 40px !important;
+  bottom: auto !important;
+  overflow: hidden !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: white;
+  margin: 16px;
+}
+
+#orderingModeSettings a {
+  background: url("../images/Sort_Icons_retina_r1.png") no-repeat;
+  background-size: 45px auto;
+  padding-left: 55px;
+
+  &.orderValueDescending {
+    background-position: 0px 0px;
+  }
+
+  &.orderValueAscending {
+    background-position: 0px -37px;
+  }
+
+  &.orderAlphabetical {
+    background-position: 0px -74px;
+  }
+
+  &.orderReverseAlphabetical {
+    background-position: 0px -110px;
+  }
+}
+
+#powered-text {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  color: gray;
+}

@@ -1,0 +1,127 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+html, body {
+  height: 100%;
+}
+
+#logo {
+  position: relative;
+}
+
+.btn-success {
+  width: 235px;
+}
+
+.footer {
+  text-align: center;
+}
+
+#buttons {
+  margin: 30px 45px;
+  position: relative;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 6px;
+  background: rgb(244, 244, 244);
+
+  /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(244, 244, 244, 1) 0%, rgba(238, 238, 238, 1) 100%);
+
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(244, 244, 244, 1)), color-stop(100%, rgba(238, 238, 238, 1)));
+
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(244, 244, 244, 1) 0%, rgba(238, 238, 238, 1) 100%);
+
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(244, 244, 244, 1) 0%, rgba(238, 238, 238, 1) 100%);
+
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(244, 244, 244, 1) 0%, rgba(238, 238, 238, 1) 100%);
+
+  /* IE10+ */
+  background: linear-gradient(top, rgba(244, 244, 244, 1) 0%, rgba(238, 238, 238, 1) 100%);
+
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f4f4f4', endColorstr = '#eeeeee', GradientType = 0);
+
+  /* IE6-9 */
+
+  box-shadow: 0px 3px 10px #ddd;
+
+  h4 {
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+}
+
+#popoverElement > .popover {
+  background: #101A22;
+
+  .popover-title {
+    color: #fff;
+    background: -ms-linear-gradient(top, #545760 0%, #222A32 50%, #101A22 50.1%, #101A22 100%);
+    background: -moz-linear-gradient(top, #545760 0%, #222A32 50%, #101A22 50.1%, #101A22 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #545760), color-stop(50%, #222A32), color-stop(50.1%, #101A22), color-stop(100%, #101A22));
+    background: linear-gradient(top, #545760 0%, #222A32 50%, #101A22 50.1%, #101A22 100%);
+    border-bottom-width: 0px;
+    text-align: center;
+  }
+
+  .popover-content {
+    padding: 0 3px;
+
+    > div {
+      border-top: 2px solid #737371;
+      background-color: #fff;
+      border-radius: 4px;
+      margin-bottom: 3px;
+      width: 270px;
+    }
+  }
+
+  .descriptionKey {
+    color: #2A6CA4;
+    padding: 6px;
+  }
+
+  .attributeList > div {
+    margin-bottom: 5px;
+    width: 95.5%;
+    background: #767777;
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px;
+
+    > div {
+      padding-top: 2px;
+    }
+  }
+
+  &.right .arrow {
+    border-right-color: #101A22;
+
+    &:after {
+      border-right-color: transparent;
+    }
+  }
+
+  .icon-info-sign {
+    background-position: 0 0;
+    background-image: url("../images/Info_Icon_blue.svg?v=09040708");
+    width: 20px;
+    height: 20px;
+    margin-top: -2px;
+  }
+}
+
+/*
+*  Fix for IE on Windows 8. Prevent native gestures for .ui-draggable, .ui-slider-handle, svg elements 
+*/
+
+.ui-draggable, .ui-slider-handle, svg {
+  -ms-touch-action: none;
+}

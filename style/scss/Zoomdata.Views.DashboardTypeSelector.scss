@@ -1,0 +1,53 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.dashboard-type-selector {
+  text-align: center;
+
+  .zd.btn.btn-link.dashboard-type-button {
+    width: 120px;
+    height: 120px;
+
+    &:hover {
+      background: transparent none;
+    }
+
+    i.zd.icon {
+      background: url('../images/DashboardType_LargeButtons_sprite.png');
+      background-size: 360px auto;
+      display: inline-block;
+      width: 118px;
+      height: 118px;
+
+      &.dashboard-type-2column {
+        background-position: 0 100%;
+      }
+
+      &.dashboard-type-4column {
+        background-position: 0 248.7%;
+      }
+    }
+
+    &:hover i.zd.icon {
+      &.dashboard-type-2column {
+        background-position: -242px 100%;
+      }
+
+      &.dashboard-type-4column {
+        background-position: -242px 248.7%;
+      }
+
+      background-position: -242px 0;
+    }
+  }
+}
+
+.modal.zd-infopopup.dashboardLayoutSelector {
+  width: 360px;
+  max-width: 360px;
+
+  .modal-body {
+    max-height: none;
+  }
+}

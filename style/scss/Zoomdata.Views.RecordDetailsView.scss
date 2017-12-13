@@ -1,0 +1,132 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.record-details-view {
+  div {
+    transition: height, 0.2s;
+    -o-transition: height, 0.2s;
+    -ms-transition: height, 0.2s;
+    -moz-transition: height, 0.2s;
+    -webkit-transition: height, 0.2s;
+  }
+
+  border-top: 2px solid #eee;
+  background-color: #ffffff;
+  padding: 5px 15px 5px 15px;
+  font-size: 12px;
+
+  .record-key {
+    color: #999;
+  }
+
+  .record-attributes-structured {
+    max-height: 40px;
+    overflow: hidden;
+    margin-right: 7px;
+  }
+
+  &.expanded .record-attributes-structured {
+    overflow: auto;
+  }
+
+  .record-attribute-key {
+    color: #939393;
+  }
+
+  .record-attribute-value {}
+
+  .record-attribute {
+    padding: 0 10px 0 0;
+    display: inline-block;
+    box-sizing: border-box;
+    min-width: 33%;
+    max-width: 370px;
+  }
+}
+
+div.record-details-view.expanded .record-attributes-structured {
+  max-height: none;
+  margin-right: 7px;
+}
+
+.record-details-view .record-attributes-unstructured {
+  max-height: 60px;
+  overflow-y: hidden;
+  margin-right: 7px;
+
+  /*margin-top: 5px;*/
+}
+
+div.record-details-view.expanded .record-attributes-unstructured {
+  max-height: 1000px;
+  margin-right: 7px;
+
+  /*margin-top: 5px;*/
+}
+
+.record-details-view {
+  .expand-button {
+    color: #0095B6;
+    display: inline-block;
+    line-height: 20px;
+
+    /*padding: 7px 7px 0px 0px;*/
+    cursor: pointer;
+
+    .expand-button-icon {
+      display: inline-block;
+      line-height: 20px;
+      width: 16px;
+      background-image: url(../images/glyphicons-halflings.png);
+      height: 16px;
+      vertical-align: top;
+      background-position: -312px -117px;
+      margin: 0 0 0 3px;
+
+      /*    -webkit-transition: all 200ms linear;
+          -moz-transition: all 200ms linear;
+          -ms-transition: all 200ms linear;
+          -o-transition: all 200ms linear;
+          transition: all 200ms linear;*/
+      /*    -moz-transform: scale(1) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+          -webkit-transform: scale(1) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+          -o-transform: scale(1) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+          -ms-transform: scale(1) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+          transform: scale(1) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);*/
+    }
+  }
+
+  &.expanded .expand-button .expand-button-icon {
+    background-position: -286px -118px;
+
+    /*    -moz-transform: scale(1) rotate(180deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        -webkit-transform: scale(1) rotate(180deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        -o-transform: scale(1) rotate(180deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        -ms-transform: scale(1) rotate(180deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+        transform: scale(1) rotate(180deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);*/
+  }
+
+  .selected-result {
+    color: #68AD45;
+    font-weight: bold;
+  }
+
+  .record-time {
+    color: #939393;
+    text-align: right;
+    margin-right: 7px;
+  }
+}
+
+#source-details-view {
+  height: 100%;
+  overflow: auto;
+
+  #spinner {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 1px;
+  }
+}

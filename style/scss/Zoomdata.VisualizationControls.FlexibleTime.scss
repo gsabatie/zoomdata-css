@@ -1,0 +1,117 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.time-window-item:first-child, .modal.zd-infopopup.visualizations-filter-selector .zd-infopopup-body .zd-list-item:first-child {
+  -webkit-border-top-left-radius: 12px;
+  -webkit-border-top-right-radius: 12px;
+  -moz-border-radius-topleft: 12px;
+  -moz-border-radius-topright: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.time-window-item, .modal.zd-infopopup.visualizations-filter-selector .zd-infopopup-body .zd-list-item {
+  background-color: #F1F1F1;
+  border-bottom: 1px solid #aaa;
+  height: 40px;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+
+.time-window-item:last-child, .modal.zd-infopopup.visualizations-filter-selector .zd-infopopup-body .zd-list-item:last-child {
+  border-bottom: 0;
+  -webkit-border-bottom-right-radius: 12px;
+  -webkit-border-bottom-left-radius: 12px;
+  -moz-border-radius-bottomright: 12px;
+  -moz-border-radius-bottomleft: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.time-window-item.checked {
+  font-weight: bold;
+
+  /*color: #68AD45;*/
+}
+
+.modal.zd-infopopup.visualizations-filter-selector .zd-infopopup-body .zd-list-item.zd-item-selected {
+  a {
+    font-weight: bold;
+
+    /*color: #68AD45;*/
+  }
+
+  .checkbox {
+    display: inline !important;
+  }
+}
+
+.time-window-item.disabled {
+  color: #aaa;
+
+  &:hover {
+    color: #aaa;
+    background-color: #e7e7e6;
+  }
+}
+
+.modal.zd-infopopup.visualizations-filter-selector .zd-infopopup-body .zd-list-item:hover {
+  background-color: #666;
+  color: white;
+}
+
+.time-window-item {
+  &:hover {
+    font-weight: bold;
+  }
+
+  .name {
+    display: inline-block;
+
+    /*float: left;*/
+    padding: 10px 0px;
+  }
+
+  .checkbox.radio {
+    margin: 10px 8px;
+    border: 1px solid #aaa !important;
+  }
+
+  &.checked .checkbox.radio {
+    background: #000 !important;
+
+    .checked.true {
+      background: #e8e742 !important;
+    }
+  }
+}
+
+.modal.zd-infopopup.visualizations-filter-selector .zd-infopopup-body .zd-list-item {
+  a {
+    padding-left: 40px;
+
+    .name {
+      line-height: 22px;
+    }
+
+    .vis-icon {
+      float: left;
+      margin: -5px 0;
+    }
+  }
+
+  .checkbox {
+    display: table-cell;
+    float: right;
+    margin-left: -25px;
+  }
+}
+
+.time-window-item.checked .checkbox:before {
+  /*content: "9";*/
+}
+
+.modal.zd-infopopup.visualizations-filter-selector .zd-infopopup-body .zd-list-item:hover a {
+  color: white;
+}

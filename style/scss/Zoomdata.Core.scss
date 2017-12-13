@@ -1,0 +1,172 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+/* apply a natural box layout model to all elements */
+/*
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*/
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  font-size: 12px;
+  overflow: hidden;
+
+  /*-ms-touch-action: none;*/
+  font-family: source-sans-pro, sans-serif;
+}
+
+input, button, select, textarea, text {
+  font-family: source-sans-pro, sans-serif;
+}
+
+.subhead {
+  color: #D2D2D2;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  margin: 7px 3px 5px;
+  text-transform: uppercase;
+
+  &.dark {
+    color: #585858;
+  }
+
+  &.small {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: normal;
+    text-transform: inherit;
+  }
+}
+
+/*.zd-palette-body .subhead.small { color: #585858; }*/
+
+.zd-infopopup-body .subhead.small {
+  color: #E6E6E6;
+}
+
+textarea:focus {
+  border-color: rgba(214, 223, 35, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+}
+
+input {
+  &[type="text"]:focus, &[type="password"]:focus, &[type="datetime"]:focus, &[type="datetime-local"]:focus, &[type="date"]:focus, &[type="month"]:focus, &[type="time"]:focus, &[type="week"]:focus, &[type="number"]:focus, &[type="email"]:focus, &[type="url"]:focus, &[type="search"]:focus, &[type="tel"]:focus, &[type="color"]:focus {
+    border-color: rgba(214, 223, 35, 0.8);
+    outline: 0;
+    outline: thin dotted \9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+  }
+}
+
+.uneditable-input:focus {
+  border-color: rgba(214, 223, 35, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(214, 223, 35, 0.6);
+}
+
+input {
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px white inset;
+  }
+
+  &[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    padding: 0 3px;
+    border: 1px solid #949494;
+    border-radius: 0px;
+    font-size: 12px;
+    line-height: 18px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+    &.zd.icon.checkmark {
+      margin: 0px;
+      margin-right: 4px;
+    }
+
+    &:checked {
+      background-color: #585858;
+      color: #D6DF23 !important;
+    }
+
+    &:not(:checked):after {
+      color: transparent;
+    }
+
+    &:checked {
+      border-color: #D2D2D2;
+      background: #313131;
+
+      &:disabled {
+        background: #8B8B8B;
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
