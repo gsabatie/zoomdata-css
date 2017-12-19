@@ -1,0 +1,78 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.time-table-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.dashboard .time-table-container {
+  margin-top: 5px;
+}
+
+.time-table-container.hidden, .single .widget .time-table-container, .fullScreenContainer .time-table-container {
+  display: none;
+}
+
+.time-table-container {
+  .time-attribute {
+    font-weight: bold;
+  }
+
+  .clock-icon {
+    width: 22px;
+    height: 22px;
+    background: url(../images/Zoomdata_Widget_Icons.svg?v=09040708) center;
+    background-position: -124px -3px;
+    overflow: visible;
+  }
+}
+
+.widget {
+  &.selectedWidget .time-table-container .clock-icon {
+    background-position: -154px -3px;
+  }
+
+  .widgetFooter .head-time-value .time-table-name {
+    display: inline-block;
+    border-right: 1px solid #B2B2B2;
+    font-weight: bold;
+    color: #68AD45;
+    padding-right: 4px;
+    padding-left: 2px;
+  }
+}
+
+.time-table-container .clock-icon .dirtyDataIndicator {
+  background-color: #f5f5f5;
+  position: relative;
+  width: 22px;
+  height: 24px;
+  top: auto;
+  left: auto;
+  margin-left: 1px;
+  margin-top: 2px;
+}
+
+.widget.selectedWidget .time-table-container .clock-icon .dirtyDataIndicator {
+  background-color: #606060;
+}
+
+.time-table-container * {
+  color: #939393;
+}
+
+.widget {
+  .foreground {}
+
+  &.selectedWidget {
+    .foreground, .background {
+      fill: #ffffff !important;
+    }
+  }
+}
+
+.widgetBody .widgetContent .brush .background {
+  fill: #ffffff !important;
+}

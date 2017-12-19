@@ -1,0 +1,288 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.confirmMessage {
+  cursor: default;
+
+  > i:hover {
+    cursor: pointer;
+  }
+}
+
+.fullScreenView {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #E6E6E6;
+  z-index: 1000;
+
+  &.zd-visualization {
+    padding: 10px 10px 52px 82px;
+  }
+}
+
+.dashboard.timeLineControlsHidden + .fullScreenView.zd-visualization {
+  padding-bottom: 10px;
+}
+
+.fullScreenView {
+  &.zd-visualization.timeLineControlsHidden {
+    padding-bottom: 10px;
+  }
+
+  .fsWrapper {
+    display: table;
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  &.zd-visualization .fsWrapper {
+    background-color: #fff;
+  }
+
+  .fsHeader {
+    display: table-row;
+    padding: 6px;
+    height: 40px;
+
+    &.empty {
+      height: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .exitFullscreen {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 34px;
+      height: 34px;
+      border: 4px solid #FFF;
+      border-radius: 50%;
+      text-align: center;
+      background-color: #B2B2B2;
+      cursor: pointer;
+      z-index: 4;
+
+      &:hover {
+        background-color: #595959;
+      }
+
+      .zd.icon.exit-fullscreen {
+        color: #FFF;
+        font-size: 22px;
+        line-height: 34px;
+        font-style: normal;
+      }
+    }
+
+    .filters {
+      display: block;
+      font-size: 14px;
+      color: #B2B2B2;
+      position: relative;
+      clear: both;
+      padding-top: 2px;
+      padding-left: 75px;
+    }
+
+    .fsHead {
+      font-weight: 300;
+      font-size: 24px;
+    }
+  }
+
+  .fsBody {
+    display: table-row;
+    height: 100%;
+  }
+}
+
+.single .widget .dragHandle .applied-filters {
+  margin-top: 2px;
+}
+
+.widget .dragHandle .applied-filters {
+  margin: 2px 0px 2px 0px;
+}
+
+.single .dragHandle .applied-filters .applied-filter, .fsBody .dragHandle .applied-filters .applied-filter {
+  cursor: pointer;
+}
+
+.widget .dragHandle {
+  .applied-filters .applied-filter, .data-items-limit.enabled {
+    cursor: pointer;
+  }
+}
+
+.single .dragHandle .applied-filters .applied-filter:hover, .fullScreenView .dragHandle .applied-filters .applied-filter:hover, .dashboard.left-panel-open .widget .dragHandle .applied-filters .applied-filter:hover, .widget .dragHandle .data-items-limit.enabled:hover {
+  color: #595959;
+}
+
+.single .widget .dragHandle .applied-filters, .fullScreenView .fsHeader .filters {
+  .filters-list {
+    display: inline-block;
+  }
+
+  .expand {
+    display: inline-block;
+
+    div {
+      display: inline-block;
+    }
+  }
+}
+
+.single .widget .dragHandle .applied-filters .expand, .fullScreenView .fsHeader .filters .expand {
+  font-weight: bold;
+  position: relative;
+}
+
+.single .widget .dragHandle .applied-filters .expand .expbtn, .fullScreenView .fsHeader .filters .expand .expbtn {
+  background-color: #E6E6E6;
+  border-radius: 12px;
+  color: #B2B2B2;
+  padding: 0 8px 2px 8px;
+}
+
+.single .widget .dragHandle .applied-filters .expand .expbtn {
+  width: auto;
+  height: auto;
+}
+
+.fullScreenView {
+  .fsHeader .filters .expand .expbtn:hover {
+    cursor: pointer;
+    background-color: #B2B2B2;
+    color: #FFF;
+  }
+
+  .fullScreenContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .fullScreenContainerFooter {
+    position: relative;
+    margin-top: 15px;
+
+    * {
+      display: inline-block;
+    }
+  }
+
+  .fullScreenContainer {
+    .navbar {
+      margin-bottom: 0px;
+    }
+
+    .editorFrameBody {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.icon-info-sign {
+  background: url("../images/Info_Icon_button.svg") no-repeat 0 0;
+  width: 25px;
+  height: 25px;
+  margin-top: -2px;
+}
+
+.fullScreen {
+  &.leftPane {
+    z-index: 1030 !important;
+
+    /*left: 35px !important;*/
+    /*top: 63px !important;*/
+  }
+
+  &.bottomPane {
+    /*box-sizing: border-box;*/
+    /*padding: 0 30px;*/
+    z-index: 1028 !important;
+    bottom: 40px !important;
+    right: 160px !important;
+
+    .control-button.right {
+      display: none;
+    }
+
+    > .paneContent > .visualization-control {
+      &:last-child, &:nth-last-child(2) {
+        /*display: none;*/
+      }
+    }
+  }
+}
+
+.fullScreenView .fsHead.pull-left {
+  line-height: 25px;
+  padding-left: 75px;
+}
+
+.zd-radial-item-filter {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  border-bottom: 1px solid transparent;
+  border-right: 1px solid transparent;
+  box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.zd-radial-item-donut {
+  position: absolute;
+  border: 0px solid rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.zd-radial-item-filler {
+  position: absolute;
+  border-radius: 50%;
+  box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.zd-radial-item-center {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.zd-radial-item-label {
+  color: #fff;
+  text-align: center;
+  text-transform: capitalize;
+  cursor: default;
+}
+
+.fullScreenView .fsWrapper .fsBody .widgetContent.expanded {
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  -moz-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+}

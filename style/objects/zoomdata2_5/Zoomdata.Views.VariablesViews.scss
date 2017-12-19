@@ -1,0 +1,37 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.multilist {
+  .function-list {
+    float: none;
+  }
+
+  &[data-type="METRIC"] {
+    width: 100%;
+
+    label, input, select {
+      vertical-align: middle;
+      float: none !important;
+      display: inline-block;
+      margin: 5px 5px;
+    }
+  }
+}
+
+.variables .variable-list {
+  label {
+    width: 320px;
+
+    /*vertical-align: top;*/
+  }
+
+  &.multilist .variables-unit {
+    height: 32px;
+    margin-top: 4px !important;
+  }
+
+  &.ungroupedList .variables-unit {
+    margin-top: 4px !important;
+  }
+}

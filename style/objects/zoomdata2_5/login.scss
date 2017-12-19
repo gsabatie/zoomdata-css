@@ -1,0 +1,447 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+/* apply a natural box layout model to all elements */
+@import "../Basics/components.scss";
+@import  "../Forms/components.scss";
+@import "../Buttons/components.scss";
+
+#logo {
+  position: relative;
+  left: -5px;
+  width: 254px;
+  height: 95px;
+}
+
+.init-page-bg {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#init-page-gradient {
+  background: linear-gradient(135deg, rgba(113, 199, 183, 1) 0%, rgba(37, 114, 85, 1) 100%);
+  -webkit-animation: fadein 500ms;
+  -moz-animation: fadein 500ms;
+  -ms-animation: fadein 500ms;
+  -o-animation: fadein 500ms;
+  animation: fadein 500ms;
+  z-index: -2;
+}
+
+#init-page-image {
+  background-position: center center;
+  display: none;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -khtml-opacity: .90;
+  -moz-opacity: .90;
+  -ms-filter: "alpha(opacity=90)";
+  filter: alpha(opacity = 90);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.9);
+  opacity: .90;
+  position: absolute;
+  z-index: -1;
+}
+
+#login-box {
+  @include zdss-block();
+  width: 280px;
+}
+
+#password-box {
+ @extend #login-box;
+  min-height: 345px;
+}
+
+#login-box h4, #password-box h4 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #fff;
+  height: 36px;
+  margin: 0;
+}
+
+#content {
+  form .form-input {
+  //   width: 100%;
+  //   outline: none;
+  //   padding: 3px 0px 3px 10px;
+  //   margin: 5px 0px;
+  //   border: 1px solid #D2D2D2;
+  //   border-radius: 12px;
+  //   height: 36px;
+  //   font-size: 18px;
+  //   -webkit-transition: all 0.30s ease-in-out;
+  //   -moz-transition: all 0.30s ease-in-out;
+  //   -ms-transition: all 0.30s ease-in-out;
+  //   -o-transition: all 0.30s ease-in-out;
+  //   background-color: #ffffff;
+
+  //   &.top {
+  //     border-radius: 12px 12px 0px 0px;
+  //     margin-bottom: 0px;
+  //   }
+
+  //   &.hidden-text {
+  //     -webkit-text-fill-color: rgba(255, 255, 255, 0) !important;
+  //     color: rgba(255, 255, 255, 0) !important;
+
+  //     &:-webkit-autofill {
+  //       -webkit-text-fill-color: rgba(255, 255, 255, 0) !important;
+  //       color: rgba(255, 255, 255, 0) !important;
+  //     }
+
+  //     &:-moz-autofill {
+  //       -moz-text-fill-color: rgba(255, 255, 255, 0) !important;
+  //       color: rgba(255, 255, 255, 0) !important;
+  //     }
+  //   }
+
+  //   &.bottom {
+  //     border-radius: 0px 0px 12px 12px;
+  //     margin-top: 0px;
+  //   }
+  // }
+
+  // .form-input {
+  //   &:focus {
+  //     box-shadow: none;
+  //   }
+
+  //   &::input-placeholder, &:-ms-input-placeholder, &::-webkit-input-placeholder, &::-moz-input-placeholder {
+  //     color: #939393;
+  //   }
+    @include zdss-input(); 
+  }
+}
+
+#login-box {
+  .show-login-fields-wrap {
+    display: none;
+  }
+
+  &.samlEnabled .show-login-fields-wrap {
+    display: block;
+    margin-top: 14px;
+  }
+}
+
+.login-fields-wrap {
+  -webkit-transition: height .3s linear;
+  -moz-transition: height .3s linear;
+  -ms-transition: height .3s linear;
+  -o-transition: height .3s linear;
+  transition: height .3s linear;
+}
+
+#login-box {
+  &.collapse_login_box .login-fields-wrap {
+    height: 0;
+    overflow: hidden;
+  }
+
+  input[type=checkbox]#show-login-fields {
+    margin-bottom: 5px;
+  }
+}
+
+input {
+  &[type=text]:focus, &[type=password]:focus {
+   // -moz-box-shadow: 0 0 10px #D6DF23;
+   // -webkit-box-shadow: 0 0 10px #D6DF23;
+   // box-shadow: 0 0 10px #D6DF23;
+   // padding: 3px 0px 3px 3px;
+   // margin: 5px 1px 3px 0px;
+   // border: 1px solid #D6DF23;
+   // outline: none;
+   // color: #000;
+   @include zdss-input();
+  }
+
+  &[type=text]:-webkit-autofill:focus, &[type=password]:-webkit-autofill:focus {
+    @include zdss-input();
+    //    -webkit-box-shadow: 0 0 10px #D6DF23, 0 0 0 50px white inset;
+  }
+
+  &[type="checkbox"] {
+  //  width: 20px;
+  //  height: 20px;
+  //  padding: 0 3px;
+  //  border: 1px solid #D2D2D2;
+  //  font-size: 12px;
+  //  line-height: 18px;
+  //  background: #fff;
+  //  color: transparent;
+  //  -webkit-appearance: none;
+  //  -moz-appearance: none;
+  //  -o-appearance: none;
+    @include zdss-checkbox();
+  
+    &.zd.icon {
+      width: 20px;
+      height: 20px;
+      padding: 0 3px;
+      border: 1px solid #D2D2D2;
+      font-size: 12px;
+      line-height: 18px;
+      background: #fff;
+      color: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -o-appearance: none;
+    }
+
+    &:checked, &.zd.icon:checked {
+      background-color: #585858;
+      border-color: #D6DF23;
+      color: #D6DF23;
+    }
+  }
+}
+
+#login-box {
+  .keep-loged-in {
+    display: inline-block;
+    margin-top: 14px;
+  }
+
+  input {
+    &[type=checkbox] {
+      margin-bottom: -5px;
+      cursor: pointer;
+      outline: 0;
+    }
+
+    &[type=submit] {
+     @include zdss-button-vis-popup();
+   //   width: 100%;
+   //   height: 40px;
+   //   border: 0;
+   //   border-radius: 12px;
+   //   font-weight: normal;
+   //   background-color: #0095B6;
+   //   font-size: 25px;
+   //   color: #FFFFFF;
+   //   outline: none;
+   //   cursor: pointer;
+   //   margin: 5px 0 0 0;
+   //   font-family: source-sans-pro-light;
+    }
+  }
+}
+
+#password-box input[type=submit] {
+  @include zdss-button-vis-popup()
+}
+
+//#login-box input[type=submit]:hover {
+//  background-color: #0389A7;
+//}
+
+//#password-box input[type=submit] {
+//  &:hover {
+//    background-color: #0389A7;
+//  }
+
+//  &:disabled {
+//    background-color: #D2D2D2 !important;
+//  }
+//}
+
+#gogin-box label {
+  color: #bcbcbc;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+#password-box {
+  label {
+    color: #bcbcbc;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  .helptext {
+    color: #FFF;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+
+  .invisible {
+    display: none;
+  }
+
+  #confirmMessage {
+    padding: 5px;
+    padding-bottom: 0px;
+    color: #EB6630;
+    font-size: 16px;
+  }
+}
+
+#with-version {
+  margin-bottom: 15px;
+
+  .version {
+    margin-top: -20px;
+
+    h6 {
+      margin: 0;
+      text-align: right;
+      font-weight: 400;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+#changePassword {
+  tr {
+    margin-bottom: 5px;
+  }
+
+  .field-label {
+    vertical-align: top;
+    padding-top: 5px;
+  }
+
+  .field {
+    text-align: left;
+  }
+
+  input {
+    margin-bottom: 0;
+  }
+}
+
+.navbar-fixed-bottom {
+  bottom: 0;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+  position: fixed;
+  z-index: 103;
+  margin-bottom: 0;
+  font-family: sans-serif;
+}
+
+.navbar {
+  margin-bottom: 20px;
+  overflow: visible;
+}
+
+footer {
+  margin-top: -22px;
+}
+
+.copyright-terms-wrap {
+  display: table;
+  background-color: rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  padding: 4px 7px 3px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+
+  a {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+  }
+}
+
+#changePassword #cancel-password-btn {
+  margin-top: 10px;
+}
+
+#updatePasswords .errorMessage {
+  padding: 5px 0;
+
+  > span {
+    color: #FF3333;
+  }
+}
+
+#skipButton {
+  color: #D6DF23;
+  border: none;
+  border-left: 1px solid #939393;
+  background: none;
+  text-decoration: underline;
+  font-size: 14px;
+  margin-left: 6px;
+  padding-left: 10px;
+  -webkit-user-select: none;
+
+  /* Chrome/Safari */
+  -moz-user-select: none;
+
+  /* Firefox */
+  -ms-user-select: none;
+
+  /* IE10+ */
+  cursor: pointer;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.zdView-CustomHtmlElements {
+  background: #FFFFFF;
+}

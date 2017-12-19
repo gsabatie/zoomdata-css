@@ -1,0 +1,572 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: source-sans-pro, sans-serif;
+}
+
+#editor-page-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#editor-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+div.container {
+  width: 100%;
+}
+
+input {
+  &[type="checkbox"]:not(:checked):after, &.zd.icon[type="checkbox"]:after {
+    display: none;
+  }
+}
+
+.well:hover {
+  border-color: #ccc;
+}
+
+.fullScreenView {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  z-index: 1044 !important;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  .fsWrapper {
+    height: 100%;
+    padding: 25px;
+  }
+
+  .fsBody {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    bottom: 0;
+    top: 95px;
+  }
+
+  .fullScreenContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .editorFrameBody {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+
+#generalContent {
+  padding: 0 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 40px;
+
+  > div {
+    height: 100%;
+  }
+}
+
+.editor {
+  float: left;
+  position: relative;
+  height: 100%;
+  width: 49.9%;
+
+  &.fullScreenView {
+    margin: 20px;
+
+    .editorControls {
+      margin: 20px;
+    }
+  }
+
+  .editorControls {
+    padding-bottom: 4px;
+    margin-bottom: 5px;
+    min-height: 36px;
+  }
+}
+
+ul.componentList {
+  margin-bottom: 0;
+}
+
+.componentList li {
+  margin-bottom: 5px;
+}
+
+.editor {
+  .editorControls .controls > * {
+    margin-bottom: 5px;
+    font-family: source-sans-pro, sans-serif;
+  }
+
+  .editorFrameWrap {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 5px;
+  }
+
+  &.fullScreenView .editorFrameWrap {
+    left: 20px;
+    right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .editorFrame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .editorFrameHead {}
+
+  .editorFrameBody {
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+  }
+}
+
+.preview {
+  float: right;
+  height: 100%;
+  position: relative;
+  width: 49.9%;
+
+  .previewControls {
+    margin-bottom: 5px;
+    padding-bottom: 4px;
+  }
+
+  &.fullScreenView .previewControls {
+    margin: 20px;
+  }
+
+  .previewControls {
+    .previewControlsPane {
+      margin-bottom: -5px;
+    }
+
+    .visualizationSettings, .controls > * {
+      margin-bottom: 3px;
+    }
+
+    .thumbnail.vis-icon {
+      display: inline-block;
+    }
+
+    .fileupload {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .thumbnail {
+      margin: 0;
+      padding: 0;
+      width: 38px;
+      height: 38px;
+      overflow: hidden;
+    }
+
+    button[title="Edit"] {
+      height: 38px;
+      width: 38px;
+    }
+
+    .thumbnail img {
+      max-height: none;
+      max-width: none;
+      width: 38px;
+      min-height: 30px;
+    }
+
+    .visualizationName {
+      padding-left: 8px;
+      overflow: hidden;
+      max-width: 150px;
+      text-overflow: ellipsis;
+      vertical-align: text-top;
+      white-space: nowrap;
+    }
+
+    .sourceList {
+      margin-bottom: 0;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}
+
+.previewControls .visualizationSettings input {
+  margin-bottom: 5px;
+  vertical-align: bottom;
+}
+
+.preview {
+  .previewFrameWrap {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 5px;
+  }
+
+  &.fullScreenView .previewFrameWrap {
+    left: 20px;
+    right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .previewFrameHolder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+iframe.previewFrame {
+  width: 100%;
+  height: 100% !important;
+  border: 0 none;
+}
+
+.navbar-inverse {
+  .icon-white {
+    opacity: 0.6;
+  }
+
+  a:hover .icon-white {
+    opacity: 1;
+  }
+}
+
+.addComponentForm {
+  text-align: left;
+}
+
+.vis-icon {
+  height: 31px;
+  cursor: pointer;
+}
+
+.librariesManager {
+  .ui-sortable {
+    min-height: 40px;
+  }
+
+  .libraryItem:hover {
+    cursor: move;
+  }
+}
+
+.variables-dialog {
+  width: 640px;
+  max-height: calc(100% - 100px);
+
+  .modal-body {
+    padding: 8px;
+    max-height: calc(100% - 100px);
+  }
+}
+
+.variablesManager {
+  .zd-tabbar-head {
+    width: 50%;
+
+    .zd.btn {
+      height: 32px;
+    }
+  }
+
+  height: 100%;
+
+  .container {
+    padding: 8px;
+    margin: 0px;
+    width: calc(100% - 16px);
+    background: #595959;
+    border-radius: 12px;
+    border-top-left-radius: 0px;
+    overflow-y: auto;
+    max-height: 400px;
+  }
+
+  .confirmation-query {
+    display: inline-block;
+    color: #FFF;
+    vertical-align: middle;
+    padding-left: 10px;
+  }
+
+  .container .zd-radio label {
+    color: #FFF;
+  }
+
+  .toolbar {
+    margin-bottom: 20px;
+  }
+
+  .variableType {
+    margin-left: 4px;
+    width: 144px;
+  }
+
+  .attributeTypes {
+    margin-top: 8px;
+    margin-left: 164px;
+
+    .attributeType {
+      &:last-child {
+        margin-top: 8px;
+      }
+
+      input {
+        float: left;
+      }
+
+      div {
+        float: left;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .variableName {
+    width: 140px;
+
+    &.error {
+      border: 1px solid #b94a48;
+      -webkit-box-shadow: 0 0 10px #b94a48;
+      -moz-box-shadow: 0 0 10px #b94a48;
+      box-shadow: 0 0 10px #b94a48;
+    }
+  }
+
+  .variableDescription {
+    width: 200px;
+    margin-left: 4px;
+  }
+
+  .variableValue {
+    margin-top: 8px;
+
+    .close {
+      margin-right: 400px;
+    }
+  }
+
+  .confirmMessage {
+    position: absolute;
+    right: 20px;
+  }
+
+  .addListValue {
+    margin-top: 8px;
+  }
+
+  .variableValue input {
+    width: 140px;
+  }
+}
+
+.variable-bool {
+  height: 21px;
+  margin: 5px 0px 0px 0px;
+
+  input {
+    float: left;
+
+    &[value="false"] {
+      margin-left: 16px;
+    }
+  }
+
+  div {
+    margin-left: 8px;
+    margin-top: 1px;
+    float: left;
+  }
+}
+
+.variables .variable-list {
+  margin: 0px;
+
+  input {
+    float: left;
+  }
+
+  div {
+    width: 320px;
+    margin-left: 8px;
+    padding-left: 8px;
+  }
+}
+
+.zd-list-item {
+  .zd-help-text {
+    color: #999;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  .color-preview {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+    background: #585858;
+    line-height: 100%;
+  }
+
+  .color-item {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #E6E6E5;
+    vertical-align: top;
+  }
+
+  .color-list-item {
+    margin-top: 5px;
+  }
+
+  .color-name {
+    width: 140px;
+    margin-right: 5px;
+  }
+
+  .color-numb-wrapper .color-picker-button-wrapper, .variable-color.color-picker-button-wrapper {
+    display: inline-block;
+    width: 180px;
+  }
+
+  .color-numb-wrapper .color-picker-button {
+    height: 30px;
+    vertical-align: middle;
+  }
+
+  .color-legend-type {
+    vertical-align: top;
+  }
+
+  .color-legend-type-label {
+    margin-right: 10px;
+  }
+
+  .color-numb-wrapper {
+    .control-label {
+      margin-top: 10px;
+    }
+
+    &.multi-metric .color-numb-control {
+      display: none;
+    }
+  }
+}
+
+.time-group-options > label {
+  display: block;
+  margin-top: 5px;
+}
+
+.set-color-attribute {
+  line-height: 30px;
+  vertical-align: top;
+  margin-left: 5px;
+
+  input {
+    vertical-align: baseline;
+  }
+}
+
+.variable-ungrouped-wrap {
+  margin-bottom: 10px;
+}
+
+.variable-multi-group-wrap {
+  margin-bottom: 10px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.attribute-color-select {
+  margin: 10px;
+  margin-top: 0px;
+}
+
+.zdView-DashboardImport .import-dashboard-btn {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  border-top: 1px solid #E6E6E6;
+  color: #E6E6E6;
+  height: 45px;
+  width: 100%;
+  background: #595959;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 999;
+  border-radius: 0px 0px 12px 12px;
+
+  &:hover {
+    background: #939393;
+  }
+
+  label {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0px;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 40px;
+
+    i {
+      font-size: 16px;
+      margin: 0px 10px 0px 20px;
+
+      &.import:after {
+        content: '\E410';
+      }
+    }
+  }
+}
+
+.modal {
+  &.variables-dialog.fade.in, &.controls-show-dialog.fade.in, &.libs-show-dialog.fade.in, &.edit-component-dialog.fade.in, &.add-component-dialog.fade.in {
+    top: 0px;
+  }
+}

@@ -1,0 +1,379 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+/*
+ * Table
+ */
+
+table.dataTable {
+  clear: both;
+  width: 100%;
+  max-width: none;
+}
+
+.dataTables_scrollHead thead th {
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+.dataTables_scrollBody thead th {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 10px;
+  height: 0;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+table.dataTable {
+  thead th:focus {
+    outline: none;
+  }
+
+  tfoot th {
+    padding: 3px 18px 3px 10px;
+    border-top: 1px solid black;
+    font-weight: bold;
+  }
+
+  td {
+    padding: 3px 10px;
+    text-align: left;
+
+    &.dataTables_empty {
+      text-align: left;
+    }
+  }
+
+  tr {
+    &.odd {
+      background-color: #F1F1F1;
+    }
+
+    &.even {
+      background-color: white;
+    }
+  }
+
+  thead .column-title {
+    text-overflow: ellipsis;
+    width: inherit;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &:hover {
+      overflow: inherit;
+      white-space: inherit;
+    }
+  }
+}
+
+/*table.dataTable tr.odd td.sorting_1 { background-color: #D3D6FF; }*/
+/*table.dataTable tr.odd td.sorting_2 { background-color: #DADCFF; }*/
+/*table.dataTable tr.odd td.sorting_3 { background-color: #E0E2FF; }*/
+/*table.dataTable tr.even td.sorting_1 { background-color: #EAEBFF; }*/
+/*table.dataTable tr.even td.sorting_2 { background-color: #F2F3FF; }*/
+/*table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }*/
+
+/*
+ * Table wrapper
+ */
+
+.dataTables_wrapper {
+  position: relative;
+  clear: both;
+  *zoom: 1;
+
+  thead th.oldField {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    color: #939393 !important;
+
+    select {
+      color: #939393 !important;
+    }
+  }
+
+  tbody {
+    .odd td.oldField {
+      background-color: rgba(221, 221, 221, 0.5);
+    }
+
+    .even td.oldField {
+      background-color: rgba(240, 240, 240, 0.5);
+    }
+  }
+}
+
+/*
+ * Page length menu
+ */
+
+.dataTables_length {
+  float: left;
+}
+
+/*
+ * Filter
+ */
+
+.dataTables_filter {
+  float: right;
+  text-align: right;
+}
+
+/*
+ * Table information
+ */
+
+.dataTables_info {
+  clear: both;
+  float: left;
+}
+
+/*
+ * Pagination
+ */
+
+.dataTables_paginate {
+  display: none;
+  float: right;
+  text-align: right;
+}
+
+/* Two button pagination - previous / next */
+
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+  height: 19px;
+  float: left;
+  cursor: pointer;
+  *cursor: hand;
+  color: #111 !important;
+}
+
+.paginate_disabled_previous:hover, .paginate_enabled_previous:hover, .paginate_disabled_next:hover, .paginate_enabled_next:hover {
+  text-decoration: none !important;
+}
+
+.paginate_disabled_previous:active, .paginate_enabled_previous:active, .paginate_disabled_next:active, .paginate_enabled_next:active {
+  outline: none;
+}
+
+.paginate_disabled_previous, .paginate_disabled_next {
+  color: #666 !important;
+}
+
+.paginate_disabled_previous, .paginate_enabled_previous {
+  padding-left: 23px;
+}
+
+.paginate_disabled_next, .paginate_enabled_next {
+  padding-right: 23px;
+  margin-left: 10px;
+}
+
+.paginate_enabled_previous {
+  background: url('../images/page-backward.png') no-repeat top left;
+
+  &:hover {
+    background: url('../images/page-backward.png') no-repeat top left;
+  }
+}
+
+.paginate_disabled_previous {
+  background: url('../images/page-backward.png') no-repeat top left;
+}
+
+.paginate_enabled_next {
+  background: url('../images/page-forward.png') no-repeat top right;
+
+  &:hover {
+    background: url('../images/page-forward.png') no-repeat top right;
+  }
+}
+
+.paginate_disabled_next {
+  background: url('../images/page-forward.png') no-repeat top right;
+}
+
+/* Full number pagination */
+
+.paging_full_numbers {
+  height: 22px;
+  line-height: 22px;
+
+  a {
+    &:active {
+      outline: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &.paginate_button, &.paginate_active {
+      border: 1px solid #aaa;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      padding: 2px 5px;
+      margin: 0 3px;
+      cursor: pointer;
+      *cursor: hand;
+      color: #333 !important;
+    }
+
+    &.paginate_button {
+      background-color: #ddd;
+
+      &:hover {
+        background-color: #ccc;
+        text-decoration: none !important;
+      }
+    }
+
+    &.paginate_active {
+      background-color: #99B3FF;
+    }
+  }
+}
+
+/*
+ * Processing indicator
+ */
+
+.dataTables_processing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 30px;
+  margin-left: -125px;
+  margin-top: -15px;
+  padding: 14px 0 2px 0;
+  border: 1px solid #ddd;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  background-color: white;
+}
+
+/*
+ * Scrolling
+ */
+
+.dataTables_scroll {
+  clear: both;
+}
+
+.dataTables_scrollBody {
+  *margin-top: -1px;
+  -webkit-overflow-scrolling: touch;
+}
+
+table.dataTable {
+  .field_type {
+    width: 100px;
+    height: 25px;
+
+    &:hover {
+      background-color: aliceblue;
+    }
+  }
+
+  .dropdown-menu {
+    min-width: 20px;
+  }
+
+  tbody tr td {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    /*display: inline-block;*/
+    display: table-cell;
+
+    /*word-wrap: break-word;*/
+    /*width: 100px;*/
+
+    &.onMouseOver {
+      white-space: normal;
+    }
+  }
+}
+
+.csv-upload-warnings {
+  display: none;
+
+  .field-type {
+    font-weight: normal;
+  }
+
+  .csv-upload-warning {
+    color: rgb(255, 170, 0);
+  }
+}
+
+.csv-upload-errors .csv-upload-error {
+  color: red;
+}
+
+.csv-wizard-upload-result {
+  #selected-file-name {
+    display: inline;
+  }
+
+  #selected-file-size {
+    display: inline;
+    margin-left: 10px;
+  }
+
+  .upload-success-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.csv-upload-errors {
+  margin-top: 10px;
+  display: none;
+}
+
+.csv-upload-warnings {
+  margin-top: 30px;
+}
+
+.upload-success-form {
+  .processed {
+    font-weight: bold;
+  }
+
+  .saved {
+    color: green;
+  }
+
+  .warning {
+    color: #ffaa00;
+  }
+
+  .failed {
+    color: #ff0000;
+  }
+}
+
+.csv-wizard {
+  #fileInput {
+    line-height: 10px;
+  }
+
+  table {
+    max-width: none;
+  }
+
+  .loader-indicator {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+}

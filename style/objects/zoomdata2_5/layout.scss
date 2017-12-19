@@ -1,0 +1,171 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+#vis {
+  top: 60px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clear: both;
+}
+
+#touch_rect {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  clear: both;
+  z-index: 0;
+}
+
+#sentencesRectBox {
+  position: absolute;
+  top: 35px;
+  width: 100%;
+  height: 100%;
+  clear: both;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sentenceRect {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid;
+  padding: 5px;
+  font-size: 12;
+  pointer-events: all;
+
+  a {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.selectedSentenceRect a {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+#sentenceLoadingIndicator {
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  img {
+    display: inline-block;
+  }
+}
+
+.bubbleValueLabel {
+  position: absolute;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sentenceRect .grad-bottom {
+  width: 100%;
+  position: relative;
+  margin: -5px 0 0 0;
+  height: 5px;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+}
+
+.top-container {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+#textElement {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+.top-container-right {
+  position: absolute;
+  right: 5px;
+  top: 60px;
+}
+
+.top-container-left {
+  position: absolute;
+  left: 16px;
+  top: 60px;
+}
+
+/*top-buttons-container*/
+
+.top-buttons-container {
+  display: inline-block;
+}
+
+#settings-box {
+  position: absolute;
+  bottom: 45px;
+  right: 15px;
+}
+
+.controls-element-slider {
+  display: inline-block;
+  height: 30px;
+
+  /* SLIDAY
+  margin-left: 5px;
+  margin-right: 5px;
+  */
+}
+
+#dirtyDataIndicator {
+  display: none;
+  position: absolute;
+  top: 130px;
+  left: 16px;
+
+  .loading-indicator {
+    position: relative;
+  }
+}
+
+#diff_button {
+  width: 60px;
+}
+
+.source_definition {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  display: none;
+  color: #808080;
+}
+
+.breadcrumbs {
+  display: none;
+  left: -10px;
+  top: -20px;
+  color: #a1a1a1;
+}
+
+.breadcrumbs-list {
+  li {
+    display: inline;
+    list-style-type: none;
+    color: #57b769;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .current {
+    color: #a1a1a1;
+    font-weight: normal;
+  }
+}

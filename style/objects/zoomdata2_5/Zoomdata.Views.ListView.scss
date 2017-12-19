@@ -1,0 +1,51 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+ul.zd.nav.nav-tabs.nav-stacked .zd-list-item > a {
+  background: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 3px;
+}
+
+.zd-list-item > a {
+  color: white;
+  background: rgb(147, 146, 146);
+  border-radius: 12px;
+
+  /*margin: 4px 0;*/
+  font-size: 16px;
+  line-height: 20px;
+  padding: 9px 14px;
+}
+
+.style-palette.zd-infopopup .zd-list-item > a {
+  background-color: #D2D2D2;
+  color: #595959;
+}
+
+.zd-tabbar .zd-list-item > a:hover {
+  background-color: #E6E6E6;
+  font-weight: 700;
+  color: #68AD45;
+}
+
+.zd-infopopup-body .zd-list-item > a {
+  margin: 0;
+  font-size: 12px;
+}
+
+.zd-list-item.zd-item-selected {
+  font-weight: bold;
+
+  > a {
+    background-color: green;
+    color: white;
+
+    &:hover {
+      box-shadow: 0 0 5px green;
+    }
+  }
+}

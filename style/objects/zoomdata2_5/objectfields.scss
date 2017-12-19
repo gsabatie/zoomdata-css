@@ -1,0 +1,140 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.object-fields {
+  list-style: none;
+  margin: 0px;
+  overflow-x: hidden;
+
+  .group {
+    ul {
+      list-style: none;
+      margin: 0px;
+    }
+
+    .header {
+      line-height: 32px;
+      font-weight: bold;
+      color: #777;
+      padding: 0 16px;
+    }
+  }
+}
+
+/* Group */
+
+/* Object Field */
+
+.dashboard .object-field {
+  list-style: none;
+  width: auto;
+  line-height: 44px;
+  padding: 1px 10px 1px 0;
+  border: 1px dashed;
+  background-color: rgba(200, 200, 200, 0.5);
+  border-radius: 10px;
+  z-index: 10000;
+  white-space: nowrap;
+}
+
+.object-fields .group .object-field {
+  line-height: 44px;
+
+  .object-field-container {
+    display: table;
+    width: 100%;
+    padding: 4px 8px;
+    cursor: default;
+
+    &:hover {
+      background-color: rgba(66, 66, 66, 0.9);
+    }
+  }
+}
+
+.dashboard .object-field .icon, .object-fields .group .object-field .object-field-container .icon {
+  background-size: 44px 44px;
+  display: table-cell;
+  width: 44px;
+}
+
+.dashboard .object-field {
+  .icon {
+    height: 44px;
+  }
+
+  .text {
+    display: table-cell;
+    padding-left: 8px;
+  }
+}
+
+.object-fields .group {
+  .object-field .object-field-container {
+    .text {
+      display: table-cell;
+      padding-left: 8px;
+    }
+
+    &:hover .text {
+      color: white;
+    }
+  }
+
+  &.disabled .object-field .object-field-container {
+    .text {
+      color: gray;
+    }
+
+    &:hover {
+      .text {
+        color: gray;
+      }
+
+      background: none;
+    }
+
+    background: none;
+  }
+}
+
+/* Images */
+
+.dashboard .object-field.attribute .icon, .object-fields .group.attribute .object-field .icon {
+  background: url("../images/attribute_data_sm.png?v=09040708") no-repeat;
+}
+
+.dashboard .object-field.time .icon, .object-fields .group.time .object-field .icon {
+  background: url("../images/time_data_sm.png?v=09040708") no-repeat;
+}
+
+.dashboard .object-field.money .icon, .object-fields .group.money .object-field .icon {
+  background: url("../images/money_data_sm.png?v=09040708") no-repeat;
+}
+
+.dashboard .object-field.number .icon, .object-fields .group.number .object-field .icon {
+  background: url("../images/number_data_sm.png?v=09040708") no-repeat;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .dashboard .object-field.attribute .icon, .object-fields .group.attribute .object-field .icon {
+    background: url("../images/attribute_data.png?v=09040708") no-repeat;
+    background-size: 44px 44px;
+  }
+
+  .dashboard .object-field.time .icon, .object-fields .group.time .object-field .icon {
+    background: url("../images/time_data.png?v=09040708") no-repeat;
+    background-size: 44px 44px;
+  }
+
+  .dashboard .object-field.money .icon, .object-fields .group.money .object-field .icon {
+    background: url("../images/money_data.png?v=09040708") no-repeat;
+    background-size: 44px 44px;
+  }
+
+  .dashboard .object-field.number .icon, .object-fields .group.number .object-field .icon {
+    background: url("../images/number_data.png?v=09040708") no-repeat;
+    background-size: 44px 44px;
+  }
+}

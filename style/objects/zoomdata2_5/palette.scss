@@ -1,0 +1,72 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.zd-palette {
+  background: none;
+  background-color: rgba(233, 233, 233, 0.9);
+  padding: 0px;
+  border: none;
+  -webkit-user-select: none;
+
+  .ui-dialog-title {
+    text-align: center;
+    color: white;
+    display: table;
+    margin: 0 auto;
+    float: none;
+    font-weight: normal;
+    font-size: 1.2em;
+  }
+
+  .ui-dialog-titlebar {
+    background: none;
+    background-color: #333;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .ui-dialog-titlebar-close {
+    color: white;
+    top: 18px;
+    color: white;
+    top: 18px;
+
+    span {
+      background-image: url(../images/glyphicons-halflings-white.png?v=09040708);
+      background-position: -310px 0px;
+    }
+
+    &.ui-state-hover span {
+      background-image: url(../css/ui-custom-theme/images/ui-icons_222222_256x240.png?v=09040708);
+      background-position: -96px -128px;
+    }
+  }
+
+  .ui-dialog-content {
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ui-dialog-titlebar {
+    .arrow:hover {
+      color: #aaa;
+    }
+
+    .button {
+      color: white;
+      text-align: center;
+      margin-bottom: 6px;
+      padding: 0px;
+      margin: 0px;
+      margin-bottom: 4px;
+      font-weight: normal;
+      color: #aaa;
+      cursor: move;
+    }
+  }
+}
+
+.ui-widget-overlay {
+  background: none;
+}

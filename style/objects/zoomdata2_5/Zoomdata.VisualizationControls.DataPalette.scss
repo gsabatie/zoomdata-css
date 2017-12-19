@@ -1,0 +1,61 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.object-field-container {
+  display: -webkit-box;
+
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+
+  /* NEW - Chrome */
+  display: flex;
+
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  position: relative;
+}
+
+.object-field {
+  cursor: pointer;
+
+  &:hover {
+    background-color: grey;
+  }
+
+  .text {
+    font-size: 16px;
+    padding-left: 5px;
+    line-height: 45px;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.filters-list-wrapper .object-field .text {
+  width: 100%;
+}
+
+.grouped-list-header {
+  line-height: 32px;
+  font-weight: bold;
+  color: #777;
+}
+
+.zd-interactive-draggable {}
+
+.object-field.zd-interactive-draggable {
+  list-style: none;
+  background-color: rgba(233, 233, 233, 0.9);
+  border-radius: 15px;
+  padding: 5px;
+
+  .text {}
+}

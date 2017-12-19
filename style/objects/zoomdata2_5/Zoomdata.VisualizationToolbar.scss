@@ -1,0 +1,300 @@
+/**
+ * Copyright (C) Zoomdata, Inc. 2012-2016. All rights reserved.
+ */
+
+.hierarchy-list {
+  width: calc(50% - 10px);
+  max-height: 400px;
+  overflow: auto;
+  float: left;
+  padding-right: 10px;
+  border-right: 1px solid #aaa;
+  margin: 0;
+
+  .hierarchy-item {
+    cursor: pointer;
+    line-height: 30px;
+
+    button {
+      &[name="add"] {
+        display: inline-block;
+      }
+
+      &[name="delete"] {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background-color: #aaa;
+    }
+
+    .btn-link {
+      color: #000;
+
+      &:hover, &:focus {
+        text-decoration: none;
+        outline: none;
+      }
+    }
+  }
+
+  &.selected-entities {
+    padding-right: 0;
+    border-right: none;
+    float: right;
+
+    .hierarchy-item button {
+      &[name="add"] {
+        display: none;
+      }
+
+      &[name="delete"] {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.palette-dark {
+  color: #aaa;
+
+  .zd-infopopup-titlebar {
+    padding-bottom: 0;
+  }
+}
+
+.modal.zd-infopopup.palette-dark {
+  width: 240px;
+  max-width: 240px;
+}
+
+.palette-dark {
+  .zd-infopopup-header {
+    color: #aaa;
+    text-align: left;
+  }
+
+  .zd-infopopup-body {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  legend {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 10px 0 10px;
+    margin: 0;
+    color: #aaa;
+    border: none;
+  }
+
+  .facets-list-for-attribute {
+    padding: 0;
+    margin: 0;
+  }
+
+  .facets-list-item {
+    font-size: 11px;
+    line-height: 18px;
+    color: #fff;
+
+    &:hover {
+      background-color: #777;
+    }
+
+    &.selected {
+      color: #777;
+      background-color: rgba(232, 231, 66, 1);
+
+      &:hover {
+        color: #777;
+        background-color: rgba(232, 231, 66, 1);
+      }
+    }
+  }
+
+  .facets-header {
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+
+  .clearFaceting {
+    font-size: 14px;
+    display: block;
+    float: none;
+  }
+}
+
+.entity-picker .zd-infopopup-pointer-arrow, .palette-dark .zd-infopopup-pointer-arrow {
+  background-color: #323232;
+}
+
+.entity-picker .zd-infopopup-pointer, .palette-dark .zd-infopopup-pointer {}
+
+.refline.modal {
+  .modal-body {
+    padding: 0px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+.entity-picker {
+  &.modal {
+    padding: 0 10px 10px;
+  }
+
+  h3.dialog-head {
+    font-size: 14px;
+    line-height: 15px;
+  }
+
+  .close {
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  .modal-body {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .zd-dialog-actions button {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  max-width: 720px;
+}
+
+.time-range-picker {
+  max-width: 320px;
+}
+
+.grid-icon-holder {
+  width: 20px;
+  height: 1px;
+  display: inline-block;
+}
+
+.facets-list-item {
+  .title {
+    float: left;
+  }
+
+  .count {
+    float: right;
+  }
+}
+
+.facets-header > .clearFaceting {
+  font-size: 15px;
+}
+
+.facets-list-item {
+  display: inline-block;
+  width: 100%;
+
+  .title {
+    float: left;
+  }
+
+  .count {
+    float: right;
+  }
+}
+
+.palette-dark {
+  color: #aaa;
+
+  .zd-infopopup-titlebar {
+    padding-bottom: 0;
+  }
+
+  .zd-infopopup-header {
+    color: #aaa;
+    text-align: left;
+  }
+
+  .zd-infopopup-body {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+
+  legend {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 10px 0 10px;
+    margin: 0;
+    color: #aaa;
+    border: none;
+  }
+
+  .facets-list-for-attribute {
+    padding: 0;
+    margin: 0;
+  }
+
+  .facets-list-item {
+    font-size: 11px;
+    line-height: 18px;
+    color: #fff;
+
+    &:hover {
+      background-color: #777;
+    }
+
+    &.selected {
+      color: #777;
+      background-color: rgba(232, 231, 66, 1);
+
+      &:hover {
+        color: #777;
+        background-color: rgba(232, 231, 66, 1);
+      }
+    }
+  }
+
+  .facets-header {
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+
+  .clearFaceting {
+    font-size: 14px;
+    display: block;
+    float: none;
+  }
+}
+
+.entity-picker.wide {
+  min-width: 300px;
+}
+
+.vd-nextPage {
+  -webkit-transform: scale(-1, 1) translate(-10px, 0px);
+  padding-left: 20px;
+}
+
+.vd-pageIndicator {
+  padding-top: 7px;
+  padding-left: 8px;
+}
+
+.zd-visualization-toolbar-item.zd.icon.filter.active {
+  background-color: grey;
+  border-radius: 50%;
+  margin-left: 12px;
+  margin-right: 2px;
+  padding: 4px 6px;
+  margin-top: 4px;
+  margin-right: -8px;
+}
