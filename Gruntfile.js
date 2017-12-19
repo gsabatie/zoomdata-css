@@ -9,19 +9,26 @@ module.exports = function (grunt) {
             }
         },
         sass: {
+            // Convert scss file to css to  q dest file
             def: {
+                options:  {
+                    sourcemap: 'none',
+                },
+                 files: [{
+                    expand: true,
+                    cwd: 'style/objects/zoomdata2_5',
+                    src: [ '../../../node_modules/muicss/lib/sass/mui/**/*.scss','*.scss'],
+                    dest:'dest', 
+                    ext: '.css'
+                  }]
+            },
+            // Generate a style.css and a mixins-to-classes.scsss tpo present the css element on a static webpage
+            singleFileToPresent: {
                 files: {
-                    './dest/style.css': './dest/mixins-to-classes.scss'
-                }
-            } 
-        },
-        /*autoprefixer: {
-            dist: {
-                files: {
-                    './style/styles.css': './style/styles.css'
+                    './dest/style.css' : './dest/mixins-to-classes.scss'                   
                 }
             }
-        },*/
+        },
         mixdoc: {
             def: {
                 options: {
@@ -29,21 +36,20 @@ module.exports = function (grunt) {
                     dest_folder: './dest',
                 }
             }
-        },  
+        },
+        // Watch the modification on the .scss files
         watch: {
             tasks: [
                 'mixdoc', 
                 'sass', 
                 'copy', 
-                'cssmin' 
-//                'connect:livereload'
             ],
-            files: ['*', './style/objects/**/*.scss', './node_modules/grunt-mixdoc/**/*']
+            files: [ '../../../node_modules/muicss/lib/sass/mui/**/*.scss','./style/objects/**/*.scss', './node_modules/grunt-mixdoc/**/*']
         },
         copy: {
+            // copy the font in the dest folder
             fonts: {
                 files: [
-                    // includes files within path and its sub-directories
                     {
                         expand: true,
                         cwd: 'style/',
@@ -51,6 +57,15 @@ module.exports = function (grunt) {
                         dest: 'dest'
                     }
                 ]
+            },
+            // Copy the css in the dest folder to the css folder of zoomdata
+            toZoomData: {
+                files: [
+                    {
+                       src: ['dest/*.css', '!dest/style.css', '!dest/style.min.css'],
+                       dest: '/opt/zoomdata/client/css/'
+                    }
+                ]   
             }
         },
         connect: {
@@ -88,21 +103,20 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    //grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
-    // A very basic default task.
+
     grunt.registerTask('default', [
         'mixdoc', 
-        'sass',
+        'sass:singleFileToPresent',
         'cssmin',
         'copy:fonts',
     ]);
     grunt.registerTask('dev', [
         'default',
-        'connect:livereload',
+        'copy:toZoomData',
         'watch'
     ]);
 
@@ -111,10 +125,4 @@ module.exports = function (grunt) {
         'copy:fonts',
         'gh-pages'
     ]);
-
-    /*grunt.registerTask('pre', [
-     'sass',
-     'autoprefixer',
-     'cssmin'
-     ]);*/
 };
