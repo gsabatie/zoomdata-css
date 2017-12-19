@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+@import "../Buttons/components.scss";
 .zdss-app {
   /*!
    * inuitcss, by @csswizardry
@@ -1949,7 +1949,13 @@ Pop-up Dialog Light
 	</div>
 </div>
 */
+/*
+  Button
+*/
 
+.btn {
+  @include zdss-button();
+}
 .zdView-Accounts {
   h1 {
     font-size: 24px;
@@ -4739,6 +4745,7 @@ Pop-up Dialog Light
 */
 
   .addItemBtn {
+    @include zdss-button();
     margin-left: 6px;
   }
 
@@ -5324,31 +5331,32 @@ Pop-up Dialog Light
     }
 
     .btn {
-      &.preview {
-        /* float: right; */
-        margin-left: 4px;
-      }
+      // &.preview {
+      //   /* float: right; */
+      //   margin-left: 4px;
+      // }
 
-      &.date[disabled="disabled"] {
-        .icon-wrapper, input.text {
-          cursor: not-allowed !important;
-        }
+      // &.date[disabled="disabled"] {
+      //   .icon-wrapper, input.text {
+      //     cursor: not-allowed !important;
+      //   }
 
-        .icon-wrapper {
-          &:hover {
-            color: inherit !important;
-            cursor: not-allowed !important;
-          }
+      //   .icon-wrapper {
+      //     &:hover {
+      //       color: inherit !important;
+      //       cursor: not-allowed !important;
+      //     }
 
-          .icon.calendar:hover {
-            cursor: not-allowed !important;
-          }
-        }
+      //     .icon.calendar:hover {
+      //       cursor: not-allowed !important;
+      //     }
+      //   }
 
-        input.text {
-          background-color: #EEE !important;
-        }
-      }
+      //   input.text {
+      //     background-color: #EEE !important;
+      //   }
+      // }
+      @include zdss-button();
     }
   }
 
