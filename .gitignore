@@ -22,3 +22,4 @@ style/main.css.map
 /node_modules/grunt-sass/
 /node_modules/node-sass/
 /npm-debug.log
+package-lock.json

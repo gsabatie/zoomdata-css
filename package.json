@@ -13,12 +13,13 @@
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-mixdoc": "latest",
     "grunt-gh-pages": "^2.0.0",
     "grunt-kss": "^5.0.1",
-    "node-sass": "^4.7.2",
-    "grunt-contrib-sass": "^1.0.0"
+    "grunt-mixdoc": "latest",
+    "grunt-styledoc": "0.0.3",
+    "node-sass": "^4.7.2"
   },
   "engines": {
     "node": ">=0.10.0",
