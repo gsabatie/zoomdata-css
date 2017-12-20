@@ -1,10 +1,13 @@
 module.exports = function (grunt) {
+    
+    var serveStatic = require('serve-static');
 
     grunt.initConfig({
         cssmin: {
-            combine: {
+            // Minify all your CSS files into one, used by the style guide
+            docs: {
                 files: {
-                    './dest/style.min.css': ['./dest/style.css']
+                    './doc/style.min.css': ['./dest/*.css']
                 }
             }
         },
@@ -17,34 +20,33 @@ module.exports = function (grunt) {
                  files: [{
                     expand: true,
                     cwd: 'style/objects/zoomdata2_5',
-                    src: [ '../../../node_modules/muicss/lib/sass/mui/**/*.scss','*.scss'],
+                    src: [ '../../../node_modules/muicss/lib/sass/mui/**/*.scss','*.scss', '*.*.scss'],
                     dest:'dest', 
                     ext: '.css'
                   }]
             },
-            // Generate a style.css and a mixins-to-classes.scsss tpo present the css element on a static webpage
-            singleFileToPresent: {
-                files: {
-                    './dest/style.css' : './dest/mixins-to-classes.scss'                   
-                }
-            }
         },
-        mixdoc: {
+        kss: {
+            // build the style guide
             def: {
                 options: {
-                    styles_folder: './style/objects',
-                    dest_folder: './dest',
-                }
+                    verbose: true,
+                    css:'style.min.css'
+                },
+                files: [{
+                    src:'./style/objects/zoomdata2_5',
+                    dest: './doc'
+                }]
             }
         },
         // Watch the modification on the .scss files
         watch: {
             tasks: [
-                'mixdoc', 
                 'sass', 
-                'copy', 
+                'kss',
+                'cssmin'
             ],
-            files: [ '../../../node_modules/muicss/lib/sass/mui/**/*.scss','./style/objects/**/*.scss', './node_modules/grunt-mixdoc/**/*']
+            files: ['./style/objects/**/*.scss', 'Gruntfile.js']
         },
         copy: {
             // copy the font in the dest folder
@@ -60,6 +62,10 @@ module.exports = function (grunt) {
             },
             // Copy the css in the dest folder to the css folder of zoomdata
             toZoomData: {
+                options: {
+                    mode: true,
+
+                }, 
                 files: [
                     {
                        src: ['dest/*.css', '!dest/style.css', '!dest/style.min.css'],
@@ -70,7 +76,7 @@ module.exports = function (grunt) {
         },
         connect: {
             options: {
-                port: 9000,
+                port: 9090, 
                 open: true,
                 livereload: 35729,
                 hostname: '0.0.0.0'
@@ -79,7 +85,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            connect.static('dest')
+                            serveStatic('doc')
                         ];
                     }
                 }
@@ -91,38 +97,30 @@ module.exports = function (grunt) {
                 }
             }
         },
-        'gh-pages': {
-            options: {
-                base: 'dest'
-            },
-            src: ['**']
-        }
     });
 
     grunt.loadNpmTasks('grunt-mixdoc');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-connect');
-
+    grunt.loadNpmTasks('grunt-kss');
 
     grunt.registerTask('default', [
-        'mixdoc', 
-        'sass:singleFileToPresent',
-        'cssmin',
+        'sass',
         'copy:fonts',
     ]);
     grunt.registerTask('dev', [
         'default',
-        'copy:toZoomData',
+        'kss',
+        'cssmin',
+       // 'connect',
         'watch'
     ]);
 
     grunt.registerTask('deploy', [
-        'mixdoc',
-        'copy:fonts',
-        'gh-pages'
+        'dev',
+        'copy:toZoomData'
     ]);
 };

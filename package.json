@@ -19,7 +19,8 @@
     "grunt-kss": "^5.0.1",
     "grunt-mixdoc": "latest",
     "grunt-styledoc": "0.0.3",
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.7.2",
+    "serve-static": "^1.13.1"
   },
   "engines": {
     "node": ">=0.10.0",
